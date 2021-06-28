@@ -1,0 +1,87 @@
+table{
+border: 2px solid black;
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;    margin: 45px;     width: 600px; text-align: center;    border-collapse: collapse;
+    align: right;
+}
+
+
+th {
+
+ font-size: 14px;     font-weight: normal;     padding: 8px;     background: #b9c9fe;
+        border-bottom: 1px solid #fff; color: #039; text-align: center;
+width: 25%;
+}
+
+td {
+padding: 8px;     background: #e8edff;     border-bottom: 1px solid #fff; font-size: 14px;
+    color: #669;    border-top: 1px solid transparent; text-align: center; width: 25%;
+}
+
+tr:hover td { background: #d0dafd; color: #339; align: right;}
+
+caption {
+
+text-align: center; font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif; font-size: 20px;
+color: black;
+
+}
+
+
+body {
+  background-color: #EEEEC2;
+
+  font: Helvética, Arial, sans-serif;
+  padding: 1em;
+/*  margin: 0 auto;
+  max-width: 33em;*/
+}
+h1 {
+    color: #375e97;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-bottom: 2px solid #375e97;
+}
+
+.specialimg {
+border: 4px solid #23800E;
+}
+
+
+h2 {
+    font-size: 1.5em;
+}
+
+/*table.specialtable{
+border: 2px solid black;
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;    margin: 45px;     width: 600px; text-align: center;    border-collapse: collapse;
+    align: right;
+}
+
+
+th.specialth {
+
+ font-size: 14px;     font-weight: normal;     padding: 8px;     background: #b9c9fe;
+        border-bottom: 1px solid #fff; color: #039; text-align: center;
+width: 25%;
+}
+
+td.specialtd {
+padding: 8px;     background: #e8edff;     border-bottom: 1px solid #fff; font-size: 14px;
+    color: #669;    border-top: 1px solid transparent; text-align: center; width: 25%;
+}
+
+tr:hover td { background: #d0dafd; color: #339; align: right;}
+
+caption.specialcaption {
+
+text-align: center; font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif; font-size: 20px;
+color: black;
+
+}*/
+
+p {
+
+font-size: 16px;
+
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="no-js lt-ie9" lang="es" >
+<html class="no-js" lang="es" >
+
+<!--{% extends "base_generic.html" %}-->
+
+{% load static %}
+{% block content %}
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script type="text/javascript" src="{% static 'css/_static/js/modernizr.min.js' %}"></script>
+  <script src="{% static 'css/_static/jquery.js' %}"></script>
+  <script src="{% static 'css/_static/underscore.js' %}"></script>
+  <script type="text/javascript" src="{% static 'css/_static/js/theme.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/newStyle.css' %}">
+  <link rel="stylesheet" href="{% static 'css/_static/css/theme.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'css/_static/css/style.css' %}" type="text/css" />
+
+</head>
+
+
+<body class="wy-body-for-nav">
+
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side" style="width:220px">
+
+              <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation" style="font-size:20px">
+              {% block sidebar %}
+              <ul class="sidebar-nav" style="width:220px">
+                  <li><a class="icon icon-home" href="{% url 'index' %}">Home</a></li>
+                  {% if user.is_authenticated %}
+                  <li><a>User: {{ user.get_username }}</a></li>
+                    <li><a href="{% url 'my-borrowed' %}">Mis Entidades</a></li>
+                    <li><a href="{% url 'my-registered' %}">Mis Individuos</a></li>
+                    <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+                  {% else %}
+                    <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                  {% endif %}
+              </ul>
+             {% endblock %}
+              </div>
+        </nav>
+
+        <div class="wy-nav-content">
+
+<h1>Registra un Individuo</h1>
+
+<form action="" method="post">
+
+    <h5>Registar Nueva Cuenta de Red Social: <a href="{% url 'socialmediaaccount-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
+    <h5>Registar Nuevo Vehículo: <a href="{% url 'vehicle-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
+    <h5>Registar Nueva Cuenta de Email: <a href="{% url 'email-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
+    <h5>Registar Otra residencia conocida: <a href="{% url 'address-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
+    <h5>Añadir anotación: <a href="{% url 'note-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
+
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Guardar" class="btn btn-primary"/>
+
+</form>
+
+
+
+{% endblock %}
+
+        </div>
+
+</body>
+</html>

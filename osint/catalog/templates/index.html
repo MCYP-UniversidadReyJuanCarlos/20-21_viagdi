@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="no-js lt-ie9" lang="es" >
+<html class="no-js" lang="es" >
+
+<!--{% extends "base_generic.html" %}-->
+
+{% load static %}
+{% block content %}
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script type="text/javascript" src="{% static 'css/_static/js/modernizr.min.js' %}"></script>
+  <script src="{% static 'css/_static/jquery.js' %}"></script>
+  <script src="{% static 'css/_static/underscore.js' %}"></script>
+  <script type="text/javascript" src="{% static 'css/_static/js/theme.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/newStyle.css' %}">
+  <link rel="stylesheet" href="{% static 'css/_static/css/theme.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'css/_static/css/style.css' %}" type="text/css" />
+
+</head>
+
+
+<body class="wy-body-for-nav" style="background: url({% static 'css/leaves.png' %})">
+
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side" style="width:220px">
+
+              <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation" style="font-size:20px">
+              {% block sidebar %}
+              <ul class="sidebar-nav" style="width:220px">
+                  <li><a class="icon icon-home" href="{% url 'index' %}">Home</a></li>
+                  {% if user.is_authenticated %}
+                  <li><a>User: {{ user.get_username }}</a></li>
+                    <li><a href="{% url 'my-borrowed' %}">Mis Entidades</a></li>
+                    <li><a href="{% url 'my-registered' %}">Mis Individuos</a></li>
+                    <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+                  {% else %}
+                    <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                    <li><a href="{% url 'signup' %}">Regístrate</a></li>
+                  {% endif %}
+              </ul>
+             {% endblock %}
+              </div>
+        </nav>
+
+
+
+<!--<section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+    <div class="wy-nav-content">
+
+        <div class="rst-content">
+
+            <div class="section" id="idx">-->
+
+<div class="wy-nav-content">
+
+<header>
+    <h1>OSINT Tool Home</h1>
+</header>
+
+  <p>Welcome to <em>OSINT Tool</em>, a basic Django website developed as a OSINT Tool for intelillence analysis</p>
+
+<h2>Dynamic content</h2>
+
+  <p>The Tool has the following record counts:</p>
+  <ul>
+    <li><strong>Entidades Registradas:</strong> {{ num_entities }}</li>
+<!--    <li><strong>Administrators:</strong> {{ num_administrators }}</li>-->
+    <li><strong>Entidades Activas:</strong> {{ num_entities_active }}</li>
+    <li><strong>Entidades Relacionadas:</strong> {{ num_secondary_business }}</li>
+    <li><strong>Individuos:</strong> {{ num_individuals }}</li>
+  </ul>
+
+{% endblock %}
+            </div>
+
+</body>
+</html>

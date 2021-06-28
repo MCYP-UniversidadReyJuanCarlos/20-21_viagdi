@@ -1,0 +1,101 @@
+/* spacing */
+
+.specialtable {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 10px double grey;
+  text-align: center;
+  border-collapse: collapse;
+  align: right;
+  font-size: 15px;
+  margin: 45px;
+  width: 600px;
+  background: white
+}
+
+
+.alltable {
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 15px;
+  margin: 45px;
+  width: 600px;
+  align: left;
+}
+
+.specialdiv {
+  border-style: double dashed;
+  background: url("leaves.png");
+
+}
+
+thead th:nth-child(1) {
+  width: 30%;
+  text-align: center;
+}
+
+thead th:nth-child(2) {
+  width: 20%;
+  text-align: center;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+  text-align: center;
+}
+
+thead th:nth-child(4) {
+  width: 35%;
+  text-align: center;
+}
+
+.specialth, .specialtd {
+  padding: 20px;
+  text-align: center;
+}
+
+.th {
+     font-size: 14px;
+     font-weight: normal;
+     padding: 8px;
+     background: #BBE86F;
+     border-bottom: 1px solid #fff;
+     color: black;
+     text-align: center;
+     width: 25%;
+}
+
+.td {
+    padding: 8px;
+    background: #E9FCC9;
+    border-bottom: 1px solid #fff;
+    font-size: 14px;
+    color: black;
+    border-top: 1px solid transparent;
+    text-align: center;
+    width: 25%;
+}
+
+.tdname {
+    padding: 8px;
+    background: #E9FCC9;
+    border-bottom: 1px solid #fff;
+    font-size: 14px;
+    color: black;
+    border-top: 1px solid transparent;
+    text-align: center;
+    width: 25%;
+}
+
+.specialcaption {
+
+text-align: center;
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size: 20px;
+color: black;
+
+}
+
+

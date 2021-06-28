@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html class="no-js lt-ie9" lang="es" >
+<html class="no-js" lang="es" >
+
+<!--{% extends "base_generic.html" %}-->
+{% load static %}
+{% block content %}
+
+
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script type="text/javascript" src="{% static 'css/_static/js/modernizr.min.js' %}"></script>
+  <script src="{% static 'css/_static/jquery.js' %}"></script>
+  <script src="{% static 'css/_static/underscore.js' %}"></script>
+  <script type="text/javascript" src="{% static 'css/_static/js/theme.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/newStyle.css' %}">
+  <link rel="stylesheet" href="{% static 'css/_static/css/theme.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'css/_static/css/style.css' %}" type="text/css" />
+
+</head>
+
+
+<!--<link rel="stylesheet" href="cherry/font-awesome.min.css">-->
+
+                     <!--<link rel="stylesheet" href="{% static 'css/cherry.css' %}">-->
+
+<!--<link rel="stylesheet" href="{% static 'css/newStyle.css' %}">-->
+<!--
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+
+
+<!--<link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css' %}">-->
+<!--<header>
+&lt;!&ndash;<img class="specialimg" src="{% static '/images/mmg.jpg' %}" align="RIGHT" height="150px" width="450px"/>&ndash;&gt;
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <h1>Entidad: {{ entity.denomination }}</h1>
+&lt;!&ndash;    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css' %}">&ndash;&gt;
+</head>
+</header>-->
+
+<!--</head>-->
+
+<body class="wy-body-for-nav">
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side" style="width:220px">
+
+              <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation" style="font-size:20px">
+              {% block sidebar %}
+              <ul class="sidebar-nav" style="width:220px">
+                  <li><a class="icon icon-home" href="{% url 'index' %}">Home</a></li>
+                  {% if user.is_authenticated %}
+                  <li><a>User: {{ user.get_username }}</a></li>
+                    <li><a href="{% url 'my-borrowed' %}">Mis Entidades</a></li>
+                    <li><a href="{% url 'my-registered' %}">Mis Individuos</a></li>
+                    <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+                  {% else %}
+                    <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                  {% endif %}
+              </ul>
+             {% endblock %}
+              </div>
+        </nav>
+
+
+
+<!--        <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">-->
+
+<!--            <nav class="wy-nav-top" aria-label="top navigation">-->
+
+<!--              <i data-toggle="wy-nav-top" class="fa fa-bars"></i>-->
+<!--              <a href="/">Home</a>-->
+
+<!--            </nav>-->
+
+<!--            <div class="wy-nav-content">-->
+<!--                <div class="rst-content">-->
+<!--                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">-->
+<!--                        <div itemprop="articleBody">-->
+<!--                            <div class="section" id="transformers">-->
+
+
+
+                                <div class="wy-nav-content" style="width: 50%; float:right">
+                                    <header>
+                                    <img class="specialimg" src="{% static '/images/mmg.jpg' %}" style="width:auto" align="RIGHT" height="150px" width="450px"/>
+                                    </header>
+
+
+<!--                                    <head>-->
+<!--                                        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+<!--                                        <title>Anotaciones Adicionales</title>-->
+<!--                                    </head>-->
+<!--                                    <body>-->
+
+                                <!--      <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css' %}">-->
+                                      <table class="specialtable" align="Right" title="Anotaciones Adicionales" style="width:auto">
+                                          <caption class="specialcaption"><strong>Anotaciones Adicionales</strong></caption>
+                                          <thead>
+                                            <tr>
+                                              <th class="specialth">Anotaión</th>
+                                              <th class="specialth">Por:</th>
+                                              <th class="specialth">Fecha de publicación</th>
+                                              <th class="specialth">Editar/Eliminar</th>
+                                            </tr>
+                                          </thead>
+
+                                          {% for note in entity.notes.all %}
+                                              <tr>
+                                                <td class="specialtd"> {{ note.text }} </td>
+
+                                                <td class="specialtd"> {{ note.publisher_name }} </td>
+
+                                                <td class="specialtd"> {{ note.pub_date }} </td>
+
+                                                <td class="specialtd"> <h5><a href=http://127.0.0.1:8000/catalog/note/{{note.id}}/update><input type="submit" value="Editar" class="btn btn-primary"/></a></h5> <h5><a href=http://127.0.0.1:8000/catalog/note/{{note.id}}/delete><input type="submit" value="Eliminar" class="btn btn-danger"/></a></h5> </td>
+                                              </tr>
+                                          {% if not forloop.last %}
+                                          {% endif %}
+                                          {% endfor %}
+                                          <tbody id="notas">
+                                          </tbody>
+                                      </table>
+<!--                                    </body>-->
+
+                                </div>
+
+
+                                <div class="wy-nav-content" style="width: 50%; float:left">
+
+                                    <header>
+                                    <!--<img class="specialimg" src="{% static '/images/mmg.jpg' %}" align="RIGHT" height="150px" width="450px"/>-->
+<!--                                        <head>-->
+                                            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+                                            <h1 title="{{ entity.denomination }}" id="entity">Entidad: {{ entity.denomination }}</h1>
+                                        <!--    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css' %}">-->
+<!--                                        </head>-->
+                                    </header>
+
+
+                                <a href={{entity.id}}/update>
+                                <input type="submit" value="Editar" class="btn btn-primary"/>
+                                </a>
+
+                                <a href={{entity.id}}/delete>
+                                <input type="submit" value="Eliminar Entidad" class="btn btn-primary"/>
+                                </a>
+
+                                <!--<body>
+                                  <figure>
+                                    <img src="../images/mmg.jpg"
+                                         alt="MMG" width="400"
+                                         height="341"
+                                         align="RIGHT">
+                                  </figure>
+                                </body>-->
+
+                                <!--  <form method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                     {{ form.as_p }}
+                                    <button type="submit">Upload</button>
+                                  </form>
+
+                                  {% if img_obj %}
+                                    <h3>Succesfully uploaded : {{img_obj.title}}</h3>
+                                    <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">
+                                  {% endif %}-->
+
+                                <!--<img class="specialimg" src="{% static '/images/mmg.jpg' %}" align="RIGHT" height="150px" width="450px"/>-->
+                                <!--    <figcaption>Logo de {{entity.denomination}}.</figcaption>-->
+
+                                <ul>
+                                  <li><p><strong>Sector: </strong>{{ entity.sector }}</p></li>
+                                  <li><p><strong>NIF: </strong> {{ entity.nif }}</p></li>
+                                  <li><p><strong>Razón Social: </strong>{{ entity.business_name }}</p></li>
+                                  <li><p><strong>Antigüedad: </strong>{{ entity.age  }}</p></li>
+                                  <li><p><strong>Status: </strong>{{ entity.status  }}</p></li>
+                                <!--  <p><strong>Domicilio Socal Actual: </strong>{{ entity.registered_office }}</p>-->
+                                  <li><p><strong>Domicilio Fiscal Actual: </strong>{{ entity.fiscal_domicile }}</p>
+
+                                    <head>
+                                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                                        <title></title>
+                                        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css">
+                                    </head>
+                                <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+                                <div align="Right" id="map" class="map map-home" style="margin:12px 0 12px 0;height:400px;width:400px;"></div>
+                                <script>
+                                    var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                                        osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                                        osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});
+                                    var map = L.map('map').setView([{{entity.latitude}},{{entity.longitud}}], 17).addLayer(osm);
+                                    L.marker([{{entity.latitude}},{{entity.longitud}}])
+                                        .addTo(map)
+                                <!--		.bindPopup({{entity.denomination}})
+                                        .openPopup();
+                                </script>
+
+
+
+                                  </li>
+                                  <li><p><strong>Denominación Antigua: </strong> {{ entity.old_denomination }}</p></li>
+                                  <li><p><strong>Provincia: </strong>{{ entity.province }}</p></li>
+                                  <li><p><strong>Capital Social: </strong>{{ entity.social_capital }}</p></li>
+                                  <li><p><strong>Teléfono: </strong>{{ entity.phone_number }}</p></li>
+                                  <li><p><strong>Dirección Web: </strong>{% if entity.web %} <a href="{{entity.web}}"> {{entity.web}} </a>{% endif %}</p></li>
+                                  <li><p><strong>Domicilio Social actual: </strong>{% if entity.registered_office %} <a href= "https://www.google.com/maps/place/ {{entity.registered_office}}"> </a>{% endif %}</p></li>
+                                  <li><p><strong>Email Coorporativo: </strong>{{ entity.corporate_email }}</p></li>
+                                </ul>
+
+
+                                <!--<div>-->
+                                <!--  <head>
+                                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                                    <title>Anotaciones Adicionales</title>
+                                  </head>
+                                  <body>
+
+                                &lt;!&ndash;      <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css' %}">&ndash;&gt;
+                                      <table class="specialtable" align="Right" title="Anotaciones Adicionales">
+                                          <caption><strong>Anotaciones Adicionales</strong></caption>
+                                          <thead>
+                                            <tr>
+                                              <th class="specialth">Anotaión</th>
+                                              <th class="specialth">Por:</th>
+                                              <th class="specialth">Fecha de publicación</th>
+                                              <th class="specialth">Editar/Eliminar</th>
+                                            </tr>
+                                          </thead>
+
+                                          {% for note in entity.notes.all %}
+                                              <tr>
+                                                <td class="specialtd"> {{ note.text }} </td>
+
+                                                <td class="specialtd"> {{ note.publisher_name }} </td>
+
+                                                <td class="specialtd"> {{ note.pub_date }} </td>
+
+                                                <td class="specialtd"> <h5><a href=http://127.0.0.1:8000/catalog/note/{{note.id}}/update><input type="submit" value="Editar" class="btn btn-primary"/></a></h5> <h5><a href=http://127.0.0.1:8000/catalog/note/{{note.id}}/delete><input type="submit" value="Eliminar" class="btn btn-danger"/></a></h5> </td>
+                                              </tr>
+                                          {% if not forloop.last %}
+                                          {% endif %}
+                                          {% endfor %}
+                                          <tbody id="notas">
+                                          </tbody>
+                                      </table>
+                                  </body>-->
+
+                                <!--</div>-->
+
+
+                                <!--<div>-->
+<!--                                    <head>
+                                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                                        <title></title>
+                                        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css">
+                                    </head>
+                                    <body>
+                                <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+                                <div align="Right" id="map" class="map map-home" style="margin:12px 0 12px 0;height:400px;width:400px;"></div>
+                                <script>
+                                    var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                                        osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                                        osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});
+                                    var map = L.map('map').setView([{{entity.latitude}},{{entity.longitud}}], 17).addLayer(osm);
+                                    L.marker([{{entity.latitude}},{{entity.longitud}}])
+                                        .addTo(map)
+                                &lt;!&ndash;		.bindPopup({{entity.denomination}})&ndash;&gt;
+                                        .openPopup();
+                                </script>-->
+<!--                                    </body>-->
+                                <!--</div>-->
+
+
+<!--                                <ul>-->
+<!--                                  <li><p><strong>Denominación Antigua: </strong> {{ entity.old_denomination }}</p></li>-->
+<!--                                  <li><p><strong>Provincia: </strong>{{ entity.province }}</p></li>-->
+<!--                                  <li><p><strong>Capital Social: </strong>{{ entity.social_capital }}</p></li>-->
+<!--                                  <li><p><strong>Teléfono: </strong>{{ entity.phone_number }}</p></li>-->
+<!--                                  <li><p><strong>Dirección Web: </strong>{% if entity.web %} <a href="{{entity.web}}"> {{entity.web}} </a>{% endif %}</p></li>-->
+<!--                                  <li><p><strong>Domicilio Social actual: </strong>{% if entity.registered_office %} <a href= "https://www.google.com/maps/place/ {{entity.registered_office}}"> </a>{% endif %}</p></li>-->
+<!--                                  <li><p><strong>Email Coorporativo: </strong>{{ entity.corporate_email }}</p></li>-->
+<!--                                </ul>-->
+
+                                <p></p>
+                                <p></p>
+
+
+                                <!--<div>-->
+<!--                                  <head>-->
+                                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--                                    <title>Personas Vinculadas</title>-->
+<!--                                  </head>-->
+<!--                                  <body>-->
+                                    <table class="alltable" style="width:auto">
+                                        <caption class="specialcaption"><strong>Personas Vinculadas:</strong></caption>
+                                          <thead>
+                                            <tr>
+                                              <th class="th">Nombre</th>
+                                              <th class="th">Cargo Actual</th>
+                                              <th class="th">Desde</th>
+                                              <th class="th">Editar/Eliminar</th>
+                                            </tr>
+                                          </thead>
+
+                                          {% for administrator in entity.Administradores.all %}
+                                              <tr>
+                                                <td class="tdname" title="{{ administrator.name }}"> <a id="ent" href="{% url 'administrator-detail' administrator.pk %}">{{ administrator.name }} </a></td>
+
+                                                <td class="td"> {{ administrator.charge }} </td>
+
+                                                <td class="td"> {{ administrator.start_date }} </td>
+
+                                                <td class="td"> <h5><a href=http://127.0.0.1:8000/catalog/administrator/{{administrator.id}}/update><input type="submit" value="Editar" class="btn btn-success"/></a></h5> <h5><a href=http://127.0.0.1:8000/catalog/administrator/{{administrator.id}}/delete><input type="submit" value="Eliminar" class="btn btn-danger"/></a></h5> </td>
+                                              </tr>
+
+                                              {% for ent in administrator.other_entities.all %}
+                                                    <title class="otherent" id="{{ ent.denomination }}"></title>
+                                              {% endfor %}
+
+                                          {% if not forloop.last %}
+                                          {% endif %}
+                                          {% endfor %}
+                                          <tbody id="resultado">
+                                          </tbody>
+                                    </table>
+<!--                                  </body>-->
+                                <!-- </div>-->
+
+
+
+                                <p></p>
+                                <p></p>
+                                <p></p>
+
+
+                                <!--< form>
+                                  < textarea name="comment" rows=5 cols=40>
+                                  Introduzca aquí sus comentarios
+                                  < /textarea>
+                                < /form>-->
+
+
+                                <!--<form target="_blank">
+                                  <label for="fname">Notas:</label><br>
+                                  <input type="text" id="fname" name="fname" value="Notas"><br>
+                                  <input type="submit" value="Submit">
+                                </form>-->
+
+
+                                <!--<!DOCTYPE html>
+                                <html>
+                                <body >
+
+                                <h2>Notas</h2>
+
+                                <p>Anotaciones adicionales:</p>-->
+
+                                <!--<form action="/entity/{{entity.id}}" target="_self">
+                                  <textarea name="message" style="width:200px; height:600px;" ></textarea>
+                                  <br>
+                                  <input type="submit">
+                                </form>
+
+                                </body>
+                                </html>-->
+
+                                <!--<textarea id="confirmationText" class="text" cols="86" rows ="10" name="confirmationText" form="confirmationForm"></textarea>
+
+
+                                <form action="" id="confirmationForm" method="post">
+                                  {% csrf_token %}
+                                   <input type="submit" value="Email" class="submitButton">
+                                </form>-->
+
+
+                                <div class="wy-nav-content">
+
+<!--                                  </body>-->
+                                <!--</html>-->
+
+
+                                    <head>
+                                    <title>Network</title>
+                                    <script
+                                      type="text/javascript"
+                                      src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"
+                                    ></script>
+                                    <style type="text/css">
+                                      #mynetwork {
+                                        width: 700px;
+                                        height: 500px;
+                                        border: 1px solid lightgray;
+                                      }
+                                    </style>
+                                  </head>
+                                    <div id="mynetwork"></div>
+                                    <script type="text/javascript">
+
+                                    var entity = document.getElementById("entity");
+                                    var edges_ = [];
+                                    var nodes_ = [];
+                                    var nodes__ = [];
+
+                                    nodes_[0] = entity.title;
+
+                                    var b = document.querySelectorAll("td.tdname");
+                                    var e = document.querySelectorAll("title.otherent");
+                                    var administradores = [];
+
+                                    for (index = 0; index < b.length; ++index) {
+                                        administradores.push(b[index].title)
+                                    }
+
+                                    for (index = 0; index < e.length; ++index) {
+                                        administradores.push(e[index].id)
+                                    }
+
+                                    var n = nodes_.concat(administradores);
+
+
+                                    for (index = 0; index < n.length; ++index){
+                                        nodes__.push({id: index, label: n[index]});
+                                    }
+
+                                    for (index = 1; index < n.length; ++index){
+                                        edges_.push({from: 0, to: index});
+                                    }
+
+                                      // create an array with nodes
+                                      var nodes = new vis.DataSet(nodes__);
+
+                                      // create an array with edges
+                                      var edges = new vis.DataSet(edges_);
+
+                                      // create a network
+                                      var container = document.getElementById("mynetwork");
+                                      var data = {
+                                        nodes: nodes,
+                                        edges: edges,
+                                      };
+                                      var options = {};
+                                      var network = new vis.Network(container, data, options);
+                                    </script>
+
+
+
+                                </div>
+
+
+                                <p><strong>Fecha de Publicación: </strong>{{ entity.pub_date }}</p>
+
+
+                                {% endblock %}
+
+
+                                <!--<script src="{% static 'css/bootstrap/js/jquery-3.6.0.min.js' %}"></script>
+                                <script src="{% static 'css/bootstrap/js/popper.min.js' %}"></script>
+                                <script src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>-->
+
+                                </div>
+
+        <!--</html>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--    <hr/>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+
+<!--    </div>-->
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+
+
+
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-83738774-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+
+<!--</div>-->
+</body>
+</html>
