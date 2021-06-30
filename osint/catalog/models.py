@@ -7,143 +7,6 @@ from django.urls import reverse #Used to generate URLs by reversing the URL patt
 # from django_google_maps import fields as map_fields
 from django.contrib.auth.models import User
 
-class President(models.Model):
-
-    name = models.CharField('Name', max_length=50, help_text='Nombre completo')
-    # charge = models.CharField('Charge', max_length=30, help_text='Cargo en la entidad', on_delete=models.CASCADE)
-    start_date = models.DateField('Desde', help_text='Fecha en la que empezó con el cargo')
-    untill = models.DateField('Hasta', help_text='Fecha de cese')
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        """
-        Devuelve el URL a una instancia particular de entity
-        """
-        return reverse('president-detail', args=[str(self.id)])
-
-class Vicepresident(models.Model):
-
-    name = models.CharField('Name', max_length=50, help_text='Nombre completo')
-    # charge = models.CharField('Charge', max_length=30, help_text='Cargo en la entidad', on_delete=models.CASCADE)
-    start_date = models.DateField('Desde', help_text='Fecha en la que empezó con el cargo')
-    untill = models.DateField('Hasta', help_text='Fecha de cese')
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        """
-        Devuelve el URL a una instancia particular de entity
-        """
-        return reverse('vicepresident-detail', args=[str(self.id)])
-
-class Vocal(models.Model):
-
-    name = models.CharField('Name', max_length=50, help_text='Nombre completo')
-    # charge = models.CharField('Charge', max_length=30, help_text='Cargo en la entidad', on_delete=models.CASCADE)
-    start_date = models.DateField('Desde', help_text='Fecha en la que empezó con el cargo')
-    untill = models.DateField('Hasta', help_text='Fecha de cese')
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        """
-        Devuelve el URL a una instancia particular de entity
-        """
-        return reverse('vocal-detail', args=[str(self.id)])
-
-class Secretary(models.Model):
-    """
-    Secretario del consejo
-    """
-
-    name = models.CharField('Name', max_length=50, help_text='Nombre completo')
-    # charge = models.CharField('Charge', max_length=30, help_text='Cargo en la entidad', on_delete=models.CASCADE)
-    start_date = models.DateField('Desde', help_text='Fecha en la que empezó con el cargo')
-    untill = models.DateField('Hasta', help_text='Fecha de cese')
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        """
-        Devuelve el URL a una instancia particular de entity
-        """
-        return reverse('secretary-detail', args=[str(self.id)])
-
-class General_director(models.Model):
-
-    name = models.CharField('Name', max_length=50, help_text='Nombre completo')
-    # charge = models.CharField('Charge', max_length=30, help_text='Cargo en la entidad', on_delete=models.CASCADE)
-    start_date = models.DateField('Desde', help_text='Fecha en la que empezó con el cargo')
-    untill = models.DateField('Hasta', help_text='Fecha de cese')
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        """
-        Devuelve el URL a una instancia particular de entity
-        """
-        return reverse('general_director-detail', args=[str(self.id)])
-
-class Ceo(models.Model):
-
-    name = models.CharField('Name', max_length=50, help_text='Nombre completo')
-    # charge = models.CharField('Charge', max_length=30, help_text='Cargo en la entidad', on_delete=models.CASCADE)
-    start_date = models.DateField('Desde', help_text='Fecha en la que empezó con el cargo')
-    untill = models.DateField('Hasta', help_text='Fecha de cese')
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        """
-        Devuelve el URL a una instancia particular de entity
-        """
-        return reverse('ceo-detail', args=[str(self.id)])
-
-class Agent(models.Model):
-    """
-    apoderado
-    """
-
-    name = models.CharField('Name', max_length=50, help_text='Nombre completo')
-    # charge = models.CharField('Charge', max_length=30, help_text='Cargo en la entidad', on_delete=models.CASCADE)
-    start_date = models.DateField('Desde', help_text='Fecha en la que empezó con el cargo')
-    untill = models.DateField('Hasta', help_text='Fecha de cese')
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        """
-        Devuelve el URL a una instancia particular de entity
-        """
-        return reverse('agent-detail', args=[str(self.id)])
-
-class Stockholder(models.Model):
-    """
-    Accionista
-    """
-
-    name = models.CharField('Name', max_length=50, help_text='Nombre completo')
-    # charge = models.CharField('Charge', max_length=30, help_text='Cargo en la entidad', on_delete=models.CASCADE)
-    start_date = models.DateField('Desde', help_text='Fecha en la que empezó con el cargo')
-    untill = models.DateField('Hasta', help_text='Fecha de cese')
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        """
-        Devuelve el URL a una instancia particular de entity
-        """
-        return reverse('stockholder-detail', args=[str(self.id)])
-
 
 class Business(models.Model):
     denomination = models.CharField('Nombre', max_length=200, help_text='Nombre de la entidad del administrador')
@@ -258,7 +121,7 @@ class Entity(models.Model):
                                                  help_text='Número de vocales de la accionistas')
     # leaderships = models.CharField(Leaderships, help_text='Administración de la entidad')
     Administradores = models.ManyToManyField(Administrator, help_text='Administración de la entidad', max_length=50)
-    logo = models.ImageField(upload_to="catalog/static/images", null=True, blank=True)
+    logo = models.ImageField(upload_to="images/", null=True, blank=True)
     latitude = models.DecimalField(max_digits=12, decimal_places=10, null=True, blank=True)
     longitud = models.DecimalField(max_digits=12, decimal_places=10, null=True, blank=True)
     #40.4260746,-3.6960158
@@ -382,6 +245,7 @@ class Individual(models.Model):
     vehicles = models.ManyToManyField(Vehicle, help_text='Vehículos de su propiedad', max_length=50, blank=True)
     borrower = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     # borrower = models.ManyToManyField(User, help_text='Analista asociado a este individuo', null=True, blank=True, max_length=50)
+    photo = models.ImageField(upload_to="images/", null=True, blank=True)
     notes = models.ManyToManyField(Note, help_text='Anotaciones adicionales', max_length=100, null=True, blank=True)
 
 

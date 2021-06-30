@@ -1,4 +1,5 @@
-from django.http import Http404
+from django.core.files.storage import FileSystemStorage
+from django.http import Http404, HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -386,3 +387,26 @@ class NoteDelete(DeleteView):
 #     else:
 #         form = ImageForm()
 #     return render(request, 'entity_detail.html', {'form': form})
+
+def model_form_upload(request):
+    if request.method == 'POST':
+        form = EntityForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = EntityForm()
+    return render(request, 'templates/catalog/entity_form.html', {
+        'form': form
+    })
+
+# def entity_form(request):
+#     if request.method == 'POST' and request.FILES['myfile']:
+#         myfile = request.FILES['myfile']
+#         fs = FileSystemStorage()
+#         filename = fs.save(myfile.name, myfile)
+#         uploaded_file_url = fs.url(filename)
+#         return render(request, 'templates/catalog/entity_form.html', {
+#             'uploaded_file_url': uploaded_file_url
+#         })
+#     return render(request, 'templates/catalog/entity_form.html')

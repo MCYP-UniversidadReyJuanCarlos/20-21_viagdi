@@ -51,7 +51,7 @@
 
 <h1>Registra una Entidad</h1>
 
-<form action="" method="post">
+<!--<form action="" method="post">
 
     <h5>Registar Nueva Persona Vinculada: <a href="{% url 'administrator_create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
     <h5>Añadir anotación: <a href="{% url 'note-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
@@ -62,11 +62,30 @@
     </table>
     <input type="submit" value="Guardar" class="btn btn-primary"/>
 
-<!--    <h5>Registar Nueva Persona Vinculada: <a href="{% url 'administrator_create' %}"><input type="submit" value="Añadir" /></a> </h5>-->
+&lt;!&ndash;    <h5>Registar Nueva Persona Vinculada: <a href="{% url 'administrator_create' %}"><input type="submit" value="Añadir" /></a> </h5>&ndash;&gt;
 
-</form>
+</form>-->
 
+ <form method="post" enctype="multipart/form-data">
 
+    <h5>Registar Nueva Persona Vinculada: <a href="{% url 'administrator_create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
+    <h5>Añadir anotación: <a href="{% url 'note-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Upload</button>
+
+     <input type="submit" value="Guardar" class="btn btn-primary"/>
+<!--     <input type="file" name="myfile">
+     <button type="submit">Upload</button>-->
+
+  </form>
+
+<!--  {% if uploaded_file_url %}
+    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+  {% endif %}-->
+
+<!--  <p><a href="{% url 'index' %}">Return to home</a></p>-->
 
 {% endblock %}
 
