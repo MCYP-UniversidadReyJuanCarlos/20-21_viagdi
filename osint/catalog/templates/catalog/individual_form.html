@@ -50,7 +50,7 @@
 
 <h1>Registra un Individuo</h1>
 
-<form action="" method="post">
+<form method="post" enctype="multipart/form-data">
 
     <h5>Registar Nueva Cuenta de Red Social: <a href="{% url 'socialmediaaccount-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
     <h5>Registar Nuevo Vehículo: <a href="{% url 'vehicle-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
@@ -59,9 +59,11 @@
     <h5>Añadir anotación: <a href="{% url 'note-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
 
     {% csrf_token %}
-    <table>
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Upload</button>
+<!--    <table>
     {{ form.as_table }}
-    </table>
+    </table>-->
     <input type="submit" value="Guardar" class="btn btn-primary"/>
 
 </form>

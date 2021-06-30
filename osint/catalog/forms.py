@@ -24,3 +24,8 @@ class SignUpForm(UserCreationForm):
 #     class Meta:
 #         model = Entity
 #         fields = ('logo',)
+
+class EntityForm(forms.ModelForm):
+    class Meta:
+        model = Entity
+        fields = ('logo', )

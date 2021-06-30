@@ -9,16 +9,6 @@ from .models import *
 # from django_google_maps import widgets as map_widgets
 # from django_google_maps import fields as map_fields
 
-admin.site.register(President)
-admin.site.register(Vicepresident)
-admin.site.register(Vocal)
-admin.site.register(Secretary)
-admin.site.register(General_director)
-admin.site.register(Ceo)
-admin.site.register(Agent)
-admin.site.register(Stockholder)
-# admin.site.register(Leaderships)
-
 
 # class AdministratorClassInline(admin.TabularInline):
 #     model = Administrator
