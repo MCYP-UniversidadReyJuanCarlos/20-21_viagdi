@@ -58,7 +58,7 @@ class Note(models.Model):
     Accionista
     """
     publisher_name = models.CharField('Nombre', max_length=200, help_text='Introduzca su nombre', null=True, blank=True)
-    text = models.CharField('Nota', max_length=200, help_text='Añade una anotación adicional sobre la entidad')
+    text = models.TextField('Anotación', max_length=200, help_text='Añade una anotación adicional sobre la entidad')
     pub_date = models.DateTimeField('Fecha de publicación', default=timezone.now)
 
 
@@ -70,6 +70,12 @@ class Note(models.Model):
         Devuelve el URL a una instancia particular de entity
         """
         return reverse('note-detail', args=[str(self.id)])
+
+
+class PublicManager(models.Manager):
+    def get_queryset(self):
+        return super(PublicManager, self).get_queryset()\
+                                         .filter(pub_date__lte=timezone.now())
 
 
 class Entity(models.Model):
@@ -128,6 +134,8 @@ class Entity(models.Model):
     borrower = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     # borrower = models.ManyToManyField(User, help_text='Analista asociado a esta entidad', null=True, blank=True, max_length=50)
     notes = models.ManyToManyField(Note, help_text='Anotaciones adicionales', max_length=100, null=True, blank=True)
+    allow_comments = models.BooleanField('allow comments', default=True)
+    objects = PublicManager()
 
 
     def __str__(self):
@@ -247,6 +255,7 @@ class Individual(models.Model):
     # borrower = models.ManyToManyField(User, help_text='Analista asociado a este individuo', null=True, blank=True, max_length=50)
     photo = models.ImageField(upload_to="images/", null=True, blank=True)
     notes = models.ManyToManyField(Note, help_text='Anotaciones adicionales', max_length=100, null=True, blank=True)
+    allow_comments = models.BooleanField('allow comments', default=True)
 
 
     def __str__(self):

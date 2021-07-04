@@ -18,11 +18,14 @@ from django.urls import path, include
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.i18n import JavaScriptCatalog
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/', include('catalog.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path(r'comments/', include('django_comments_xtd.urls')),
+    path(r'jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     # path('', RedirectView.as_view(url='/catalog/', permanent=True)),
 ]
 

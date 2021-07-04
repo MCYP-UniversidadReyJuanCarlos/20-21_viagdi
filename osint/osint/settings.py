@@ -37,9 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'catalog.apps.CatalogConfig',
     # 'main.apps.MainConfig',
     'bootstrap4',
+    'django_comments_xtd',
+    'django_comments',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
@@ -143,3 +148,37 @@ MEDIA_ROOT = os.path.join(BASE_DIR,"catalog/static/")
 # CRISPY_TEMPLATE_PACK="bootstrap4"
 
 
+COMMENTS_APP = 'django_comments_xtd'
+
+# Or set up the EMAIL_* settings so that Django can send emails:
+# EMAIL_HOST = "smtp.mail.com"
+# EMAIL_PORT = "587"
+# EMAIL_HOST_USER = "alias@mail.com"
+# EMAIL_HOST_PASSWORD = "yourpassword"
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = "Helpdesk <helpdesk@yourdomain>"
+
+COMMENTS_XTD_CONFIRM_EMAIL = False
+
+SITE_ID = 1
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+# ACCOUNT_EMAIL_REQUIRED = True
+COMMENTS_XTD_MAX_THREAD_LEVEL = 20  # default is 0
+COMMENTS_XTD_LIST_ORDER = ('-thread_id', 'order')  # default is ('thread_id', 'order')
+
+COMMENTS_XTD_APP_MODEL_OPTIONS = {
+    'catalog:entity': {
+        'allow_comments': True,
+        'allow_flagging': True,
+        'allow_feedback': True,
+        'show_feedback': True,
+        'who_can_post': 'all' # Valid values: 'all', users'
+    }
+}
+
+# REST_FRAMEWORK = {
+# 'DEFAULT_AUTHENTICATION_CLASSES': [
+# 'rest_framework.authentication.SessionAuthentication',
+# 'simple.apiauth.APIRequestAuthentication'
+# ]
+# }

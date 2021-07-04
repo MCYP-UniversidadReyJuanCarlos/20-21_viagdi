@@ -29,3 +29,10 @@ class EntityForm(forms.ModelForm):
     class Meta:
         model = Entity
         fields = ('logo', )
+
+
+class IndividualForm(forms.ModelForm):
+    class Meta:
+        model = Individual
+        fields = ('photo', )
+
