@@ -20,24 +20,24 @@ from django.shortcuts import render, redirect
 from .forms import SignUpForm
 
 
-
 def index(request):
     """
     Función vista para la página inicio del sitio.
     """
     # Genera contadores de algunos de los objetos principales
-    num_entities=Entity.objects.all().count()
-    num_administrators=Administrator.objects.all().count()
-    num_entities_active=Entity.objects.filter(status__exact='a').count()
-    num_secondary_business=Business.objects.count() + 1 # El 'all()' esta implícito por defecto.
+    num_entities = Entity.objects.all().count()
+    num_administrators = Administrator.objects.all().count()
+    num_entities_active = Entity.objects.filter(status__exact='a').count()
+    num_secondary_business = Business.objects.count() + 1  # El 'all()' esta implícito por defecto.
 
     # Renderiza la plantilla HTML index.html con los datos en la variable contexto
     return render(
         request,
         'index.html',
-        context={'num_entities':num_entities,'num_administrators':num_administrators,
-                 'num_entities_active':num_entities_active,'num_secondary_business':num_secondary_business},
+        context={'num_entities': num_entities, 'num_administrators': num_administrators,
+                 'num_entities_active': num_entities_active, 'num_secondary_business': num_secondary_business},
     )
+
 
 class EntityListView(generic.ListView):
     model = Entity
@@ -49,6 +49,7 @@ class EntityListView(generic.ListView):
         # Get the blog from id and add it to the context
         context['some_data'] = 'This is just some data'
         return context
+
 
 class EntityDetailView(generic.DetailView):
     model = Entity
@@ -67,6 +68,7 @@ class EntityDetailView(generic.DetailView):
             context={'entity': entity_id, }
         )
 
+
 class AdministratorListView(generic.ListView):
     model = Administrator
     paginate_by = 10
@@ -77,6 +79,7 @@ class AdministratorListView(generic.ListView):
         # Get the blog from id and add it to the context
         context['some_data'] = 'This is just some data'
         return context
+
 
 class AdministratorDetailView(generic.DetailView):
     model = Administrator
@@ -93,6 +96,7 @@ class AdministratorDetailView(generic.DetailView):
             context={'administrator': administrator_id, }
         )
 
+
 class BusinessDetailView(generic.DetailView):
     model = Business
 
@@ -108,6 +112,7 @@ class BusinessDetailView(generic.DetailView):
             context={'business': business_id, }
         )
 
+
 class IndividualListView(generic.ListView):
     model = Individual
     paginate_by = 10
@@ -118,6 +123,7 @@ class IndividualListView(generic.ListView):
         # Get the blog from id and add it to the context
         context['some_data'] = 'This is just some data'
         return context
+
 
 class IndividualDetailView(generic.DetailView):
     model = Individual
@@ -185,7 +191,6 @@ class NoteDetailView(generic.DetailView):
         )
 
 
-
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -201,26 +206,27 @@ def signup(request):
     return render(request, 'catalog/signup.html', {'form': form})
 
 
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-class LoanedEntitiesByUserListView(LoginRequiredMixin,generic.ListView):
+
+class LoanedEntitiesByUserListView(LoginRequiredMixin, generic.ListView):
     """
     Generic class-based view listing books on loan to current user.
     """
     model = Entity
-    template_name ='catalog/entity_list_borrowed_user.html'
+    template_name = 'catalog/entity_list_borrowed_user.html'
     paginate_by = 10
 
     def get_queryset(self):
         return Entity.objects.filter(borrower=self.request.user).filter(status__exact='a').order_by('nif')
 
-class RegisteredIndividualsByUserListView(LoginRequiredMixin,generic.ListView):
+
+class RegisteredIndividualsByUserListView(LoginRequiredMixin, generic.ListView):
     """
     Generic class-based view listing books on loan to current user.
     """
     model = Individual
-    template_name ='catalog/individual_list_registered_user.html'
+    template_name = 'catalog/individual_list_registered_user.html'
     paginate_by = 10
 
     def get_queryset(self):
@@ -230,75 +236,91 @@ class RegisteredIndividualsByUserListView(LoginRequiredMixin,generic.ListView):
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
+
 class EntityCreate(CreateView):
     model = Entity
     fields = '__all__'
     # exclude = ['borrower']
+
 
 class EntityUpdate(UpdateView):
     model = Entity
     fields = '__all__'
     # exclude = ['borrower']
 
+
 class EntityDelete(DeleteView):
     model = Entity
     success_url = reverse_lazy('my-borrowed')
+
 
 class AdministratorCreate(CreateView):
     model = Administrator
     fields = '__all__'
     # exclude = ['borrower']
 
+
 class AdministratorUpdate(UpdateView):
     model = Administrator
     fields = '__all__'
     # exclude = ['borrower']
 
+
 class AdministratorDelete(DeleteView):
     model = Administrator
     success_url = reverse_lazy('administrators')
+
 
 class BusinessCreate(CreateView):
     model = Business
     fields = '__all__'
     # exclude = ['borrower']
 
+
 class BusinessUpdate(UpdateView):
     model = Business
     fields = '__all__'
     # exclude = ['borrower']
 
+
 class BusinessDelete(DeleteView):
     model = Business
     success_url = reverse_lazy('administrators')
+
 
 class IndividualCreate(CreateView):
     model = Individual
     fields = '__all__'
     # exclude = ['borrower']
 
+
 class IndividualUpdate(UpdateView):
     model = Individual
     fields = '__all__'
     # exclude = ['borrower']
 
+
 class IndividualDelete(DeleteView):
     model = Individual
     success_url = reverse_lazy('my-registered')
+
 
 class SocialMediaAccountCreate(CreateView):
     model = SocialMediaAccount
     fields = '__all__'
     # exclude = ['borrower']
 
+
 class SocialMediaAccountUpdate(UpdateView):
     model = SocialMediaAccount
     fields = '__all__'
     # exclude = ['borrower']
 
+
 class SocialMediaAccountDelete(DeleteView):
     model = SocialMediaAccount
     success_url = reverse_lazy('my-registered')
+
 
 class EmailCreate(CreateView):
     model = Email
@@ -307,14 +329,17 @@ class EmailCreate(CreateView):
     # exclude = ['borrower']
     # success_url deberia ser a la pagina anterior -> investigar
 
+
 class EmailUpdate(UpdateView):
     model = Email
     fields = '__all__'
     # exclude = ['borrower']
 
+
 class EmailDelete(DeleteView):
     model = Email
     success_url = reverse_lazy('my-registered')
+
 
 class AddressCreate(CreateView):
     model = Address
@@ -322,14 +347,17 @@ class AddressCreate(CreateView):
     # exclude = ['borrower']
     success_url = reverse_lazy('my-registered')
 
+
 class AddressUpdate(UpdateView):
     model = Address
     fields = '__all__'
     # exclude = ['borrower']
 
+
 class AddressDelete(DeleteView):
     model = Address
     success_url = reverse_lazy('my-registered')
+
 
 class VehicleCreate(CreateView):
     model = Vehicle
@@ -337,14 +365,17 @@ class VehicleCreate(CreateView):
     # exclude = ['borrower']
     success_url = reverse_lazy('my-registered')
 
+
 class VehicleUpdate(UpdateView):
     model = Vehicle
     fields = '__all__'
     # exclude = ['borrower']
 
+
 class VehicleDelete(DeleteView):
     model = Vehicle
     success_url = reverse_lazy('my-registered')
+
 
 class NoteCreate(CreateView):
     model = Note
@@ -352,10 +383,12 @@ class NoteCreate(CreateView):
     # exclude = ['borrower']
     success_url = reverse_lazy('my-registered')
 
+
 class NoteUpdate(UpdateView):
     model = Note
     fields = '__all__'
     # exclude = ['borrower']
+
 
 class NoteDelete(DeleteView):
     model = Note
@@ -400,6 +433,19 @@ def model_form_upload(request):
         'form': form
     })
 
+def model_form_upload_individual(request):
+    if request.method == 'POST':
+        form = IndividualForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = IndividualForm()
+    return render(request, 'templates/catalog/individual_form.html', {
+        'form': form
+    })
+
+
 # def entity_form(request):
 #     if request.method == 'POST' and request.FILES['myfile']:
 #         myfile = request.FILES['myfile']
@@ -410,3 +456,4 @@ def model_form_upload(request):
 #             'uploaded_file_url': uploaded_file_url
 #         })
 #     return render(request, 'templates/catalog/entity_form.html')
+

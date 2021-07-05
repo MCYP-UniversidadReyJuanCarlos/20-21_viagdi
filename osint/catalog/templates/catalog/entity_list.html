@@ -58,6 +58,14 @@
       <li>
         <a href="{{ entity.get_absolute_url }}">{{ entity.denomination }}</a> ({{entity.denomination}})
       </li>
+
+        {% get_comment_count for entity as comment_count %}
+        <p class="date">Published {{ entity.pub_date }}
+          {% if comment_count %}
+          &sdot;&nbsp;{{ comment_count }} comment{{ comment_count|pluralize }}
+          {% endif %}
+        </p>
+
       {% endfor %}
 
     </ul>

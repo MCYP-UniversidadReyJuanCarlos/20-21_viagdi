@@ -42,7 +42,7 @@ a.copybtn {
 
 /* The toc tree */
 .wy-nav-side{
-    background-color: #bcf7ba;
+    background-color: #488fc2;
 }
 
 /* The section headers in the toc tree */
@@ -53,7 +53,7 @@ a.copybtn {
 
 /* The selected items in the toc tree */
 .wy-menu-vertical li.current{
-    background-color: #3ec782;
+    background-color: #285bc9;
 }
 
 /* When a list item that does belong to the selected block from the toc tree is hovered */
