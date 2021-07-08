@@ -2,8 +2,9 @@
 
 # CyberPeek
 
-![Image text](https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/osint/catalog/static/images/CyberPeek.png)
-
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/osint/catalog/static/images/CyberPeek.png" />
+</p>
 
 # Project Description
 
