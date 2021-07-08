@@ -1,7 +1,5 @@
 # 20-21_viagdi
 
-# CyberPeek
-
 <p align="center">
   <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/osint/catalog/static/images/CyberPeek.png" />
 </p>
