@@ -53,7 +53,7 @@
 
 <!--<form action="" method="post">
 
-    <h5>Registar Nueva Persona Vinculada: <a href="{% url 'administrator_create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
+    <h5>Registar Nueva Persona Vinculada: <a href="{% url 'administrator-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
     <h5>Añadir anotación: <a href="{% url 'note-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
 
     {% csrf_token %}
@@ -62,14 +62,14 @@
     </table>
     <input type="submit" value="Guardar" class="btn btn-primary"/>
 
-&lt;!&ndash;    <h5>Registar Nueva Persona Vinculada: <a href="{% url 'administrator_create' %}"><input type="submit" value="Añadir" /></a> </h5>&ndash;&gt;
+&lt;!&ndash;    <h5>Registar Nueva Persona Vinculada: <a href="{% url 'administrator-create' %}"><input type="submit" value="Añadir" /></a> </h5>&ndash;&gt;
 
 </form>-->
 
  <form method="post" enctype="multipart/form-data">
 
-    <h5>Registar Nueva Persona Vinculada: <a href="{% url 'administrator_create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
-    <h5>Añadir anotación: <a href="{% url 'note-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
+    <h5>Registar Nueva Persona Vinculada: <a href="{% url 'administrator-create' %}">Añadir </a> </h5>
+<!--    <h5>Añadir anotación: <a href="{% url 'note-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>-->
 
     {% csrf_token %}
     {{ form.as_p }}

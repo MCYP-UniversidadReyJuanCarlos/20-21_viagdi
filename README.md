@@ -1,10 +1,10 @@
 # 20-21_viagdi
 
-# OSINT Tool
+# CyberPeek
 
 # Project Description
 
-OSINT Tool is a tool developed for allowing the management of information and evidence collected in an OSINT source analysis, on the different elements involved (individuals, societies, relationships, etc.), as well as the automatic representation of this information through visual models. 
+CyberPeek is an analysis tool developed for allowing the management of information and evidence collected in an OSINT source analysis, on the different elements involved (individuals, societies, relationships, etc.), as well as the automatic representation of this information through visual models. 
 
 The purpose of this tool would then be to facilitate the analysis of the information collected by showing, at all times, the existing relationships between the identified elements.
 

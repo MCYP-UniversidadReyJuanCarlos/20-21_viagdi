@@ -164,7 +164,7 @@ class SocialMediaAccount(models.Model):
     email = models.CharField('Email Asociado', max_length=50, null=True, help_text='Email asociado')
     user_name = models.CharField('Nombre de usuario', max_length=20, help_text='Nombre de usuario')
     social_media = models.CharField('Red social', max_length=20, help_text='Red social', choices=MEDIA, default=None)
-    url = models.CharField('URL de la cuenta de usuario', help_text='URL de la cuent de usuario', null=True, blank=True, max_length=20)
+    url = models.CharField('URL de la cuenta de usuario', help_text='URL de la cuent de usuario', null=True, blank=True, max_length=200)
     followers = models.IntegerField('Seguidores')
     following = models.IntegerField('Seguidos')
 
@@ -243,7 +243,6 @@ class Individual(models.Model):
     home_address_longitud = models.DecimalField(max_digits=12, decimal_places=10, null=True, blank=True, help_text='Longitud de su última residencia conocida')
     other_addresses = models.ManyToManyField(Address, max_length=20, help_text='Otras direcciones conocidas', blank=True)
     professional_status = models.CharField('Estatus Laboral', max_length=20, help_text='Estatus laboral del individuo', default='Inactivo')
-    professional_activity = models.ManyToManyField(Entity, help_text='Empresas a cargo o para las que trabaja', max_length=50)
     charge = models.CharField('Cargo laboral', max_length=20, help_text='Cargo que desempeña laboralmente', null=True, blank=True)
     # heritage = models.IntegerField('Patrimonio')
     social_accounts = models.ManyToManyField(SocialMediaAccount, help_text='Cuentas en redes sociales', max_length=50, blank=True)
