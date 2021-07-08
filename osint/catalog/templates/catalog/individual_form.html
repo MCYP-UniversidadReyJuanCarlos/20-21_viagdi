@@ -52,11 +52,11 @@
 
 <form method="post" enctype="multipart/form-data">
 
-    <h5>Registar Nueva Cuenta de Red Social: <a href="{% url 'socialmediaaccount-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
-    <h5>Registar Nuevo Vehículo: <a href="{% url 'vehicle-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
-    <h5>Registar Nueva Cuenta de Email: <a href="{% url 'email-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
-    <h5>Registar Otra residencia conocida: <a href="{% url 'address-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
-    <h5>Añadir anotación: <a href="{% url 'note-create' %}"><input type="submit" value="Añadir" class="btn btn-primary"/></a> </h5>
+    <h5>Registar Nueva Cuenta de Red Social: <a href="{% url 'socialmediaaccount-create' %}">Añadir</a> </h5>
+    <h5>Registar Nuevo Vehículo: <a href="{% url 'vehicle-create' %}">Añadir</a> </h5>
+    <h5>Registar Nueva Cuenta de Email: <a href="{% url 'email-create' %}">Añadir</a> </h5>
+    <h5>Registar Otra residencia conocida: <a href="{% url 'address-create' %}">Añadir</a> </h5>
+    <h5>Añadir anotación: <a href="{% url 'note-create' %}">Añadir</a> </h5>
 
     {% csrf_token %}
     {{ form.as_p }}
