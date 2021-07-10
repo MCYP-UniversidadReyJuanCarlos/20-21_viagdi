@@ -61,6 +61,13 @@ python manage.py runserver
 ```
 Go to http://127.0.0.1:8000/ and you will be able to use the tool.
 
+Now you can register in the tool, or log in with a standard account created for testing:
+
+```bash
+username: user
+
+password: user1234
+```
 
 # Development documentation
 
