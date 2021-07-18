@@ -131,7 +131,7 @@ class Entity(models.Model):
     latitude = models.DecimalField(max_digits=12, decimal_places=10, null=True, blank=True)
     longitud = models.DecimalField(max_digits=12, decimal_places=10, null=True, blank=True)
     #40.4260746,-3.6960158
-    borrower = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    borrower = models.ManyToManyField(User)
     # borrower = models.ManyToManyField(User, help_text='Analista asociado a esta entidad', null=True, blank=True, max_length=50)
     notes = models.ManyToManyField(Note, help_text='Anotaciones adicionales', max_length=100, null=True, blank=True)
     allow_comments = models.BooleanField('allow comments', default=True)
