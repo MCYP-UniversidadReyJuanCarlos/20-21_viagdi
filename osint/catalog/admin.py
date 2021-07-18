@@ -36,7 +36,7 @@ class AdministratorAdmin(admin.ModelAdmin):
 
 @admin.register(Entity)
 class EntityAdmin(admin.ModelAdmin):
-    list_display = ('nif', 'status', 'borrower')
+    list_display = ('nif', 'status') #, 'borrower')
     # list_display = ('nif', 'denomination', 'status')
     # list_filter = ('nif', 'denomination', 'status', 'province', 'age', 'social_capital', 'sector')
     # fields = [('nif', 'denomination'), 'status']
