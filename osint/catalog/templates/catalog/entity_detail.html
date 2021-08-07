@@ -31,35 +31,9 @@
     crossorigin="anonymous">
 <!--    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">-->
 
-
-
-
 </head>
 
 
-<!--<link rel="stylesheet" href="cherry/font-awesome.min.css">-->
-
-                     <!--<link rel="stylesheet" href="{% static 'css/cherry.css' %}">-->
-
-<!--<link rel="stylesheet" href="{% static 'css/newStyle.css' %}">-->
-<!--
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
--->
-
-
-<!--<link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css' %}">-->
-<!--<header>
-&lt;!&ndash;<img class="specialimg" src="{% static '/images/mmg.jpg' %}" align="RIGHT" height="150px" width="450px"/>&ndash;&gt;
-<head>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <h1>Entidad: {{ entity.denomination }}</h1>
-&lt;!&ndash;    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css' %}">&ndash;&gt;
-</head>
-</header>-->
-
-<!--</head>-->
 
 <body class="wy-body-for-nav">
         <nav data-toggle="wy-nav-shift" class="wy-nav-side" style="width:220px">
@@ -87,22 +61,6 @@
 
 
 
-<!--        <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">-->
-
-<!--            <nav class="wy-nav-top" aria-label="top navigation">-->
-
-<!--              <i data-toggle="wy-nav-top" class="fa fa-bars"></i>-->
-<!--              <a href="/">Home</a>-->
-
-<!--            </nav>-->
-
-<!--            <div class="wy-nav-content">-->
-<!--                <div class="rst-content">-->
-<!--                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">-->
-<!--                        <div itemprop="articleBody">-->
-<!--                            <div class="section" id="transformers">-->
-
-
 
                                 <div class="wy-nav-content" style="width: 50%; float:right">
                                     <div class="wy-nav-content" style="float:center">
@@ -111,101 +69,12 @@
                                     </header>
                                     </div>
 
+                                    <p style="line-height: 600%"></p>
 
-<!--                                    <head>-->
-<!--                                        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
-<!--                                        <title>Anotaciones Adicionales</title>-->
-<!--                                    </head>-->
-<!--                                    <body>-->
-
-                                <!--      <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css' %}">-->
-<!--                                      <table class="specialtable" align="Right" title="Anotaciones Adicionales" style="width:auto">
-                                          <caption class="specialcaption"><strong>Anotaciones Adicionales</strong></caption>
-                                          <thead>
-                                            <tr>
-                                              <th class="specialth">Anotaión</th>
-                                              <th class="specialth">Por:</th>
-                                              <th class="specialth">Fecha de publicación</th>
-                                              <th class="specialth">Editar/Eliminar</th>
-                                            </tr>
-                                          </thead>
-
-                                          {% for note in entity.notes.all %}
-                                              <tr>
-                                                <td class="specialtd"> {{ note.text }} </td>
-
-                                                <td class="specialtd"> {{ note.publisher_name }} </td>
-
-                                                <td class="specialtd"> {{ note.pub_date }} </td>
-
-                                                <td class="specialtd"> <h5><a href=http://127.0.0.1:8000/catalog/note/{{note.id}}/update><input type="submit" value="Editar" class="btn btn-primary"/></a></h5> <h5><a href=http://127.0.0.1:8000/catalog/note/{{note.id}}/delete><input type="submit" value="Eliminar" class="btn btn-danger"/></a></h5> </td>
-                                              </tr>
-                                          {% if not forloop.last %}
-                                          {% endif %}
-                                          {% endfor %}
-                                          <tbody id="notas">
-                                          </tbody>
-                                      </table>-->
-<!--                                    </body>-->
-
-
-                                    <!--<form action="{{entity.id}}" id="usrform">
-                                      Name: <input type="text" name="usrname">
-                                      <input type="submit">
-                                    </form>
-
-                                    <textarea name="comment" form="usrform">Enter text here...</textarea>
-
--->
-
-
-
-
-
-
-
-
-<!--                                    {% get_comment_count for object as comment_count %}
-                                    <div class="py-4 text-center">
-                                      <a href="{% url 'entities' %}">Back to the post list</a>
-                                      &nbsp;&sdot;&nbsp;
-                                      {{ comment_count }} comment{{ comment_count|pluralize }}
-                                      ha{{ comment_count|pluralize:"s,ve" }} been posted.
-                                    </div>-->
                                     <div class="wy-nav-content" style="float:right">
 
-                                    <!--{% block content2 %}
-                                    <div class="py-4 text-center">
-                                    <a href="{% url 'entities' %}">Back to the post list</a>
-                                    </div>
-                                    <div id="comments"></div>
-                                    {% endblock %}
+                                        <p style="line-height: 1000%"></p>
 
-                                    {% block extra-js %}
-                                    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-                                    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-                                    <script>
-                                        window.comments_props = {% get_commentbox_props for entity %};
-                                        window.comments_props_override = {
-                                            allow_comments: {%if entity.allow_comments%}true{%else%}false{%endif%},
-                                            allow_feedback: true,
-                                            show_feedback: true,
-                                            allow_flagging: true,
-                                            polling_interval: 5000 // In milliseconds.
-                                        };
-                                    </script>
-                                    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-                                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-                                    <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
-                                    <script src="{% static 'django_comments_xtd/js/vendor~plugin-2.9.2.js' %}"></script>
-                                    <script src="{% static 'django_comments_xtd/js/plugin-2.9.2.js' %}"></script>
-                                    <script>
-                                        $(function() {
-                                        $('[data-toggle="tooltip"]').tooltip({html: true});
-                                        });
-                                    </script>
-                                    {% endblock %}-->
 
                                     <!-- begin wwww.htmlcommentbox.com -->
                                      <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...</div>
@@ -222,12 +91,10 @@
                                 <div class="wy-nav-content" style="width: 50%; float:left">
 
                                     <header>
-                                    <!--<img class="specialimg" src="{% static '/images/mmg.jpg' %}" align="RIGHT" height="150px" width="450px"/>-->
-<!--                                        <head>-->
+
                                             <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
                                             <h1 title="{{ entity.denomination }}" id="entity">Entidad: {{ entity.denomination }}</h1>
-                                        <!--    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css' %}">-->
-<!--                                        </head>-->
+
                                     </header>
 
 
@@ -239,28 +106,9 @@
                                 <input type="submit" value="Eliminar Entidad" class="btn btn-primary"/>
                                 </a>
 
-                                <!--<body>
-                                  <figure>
-                                    <img src="../images/mmg.jpg"
-                                         alt="MMG" width="400"
-                                         height="341"
-                                         align="RIGHT">
-                                  </figure>
-                                </body>-->
+                                <p style="line-height: 300%"></p>
 
-                                <!--  <form method="post" enctype="multipart/form-data">
-                                    {% csrf_token %}
-                                     {{ form.as_p }}
-                                    <button type="submit">Upload</button>
-                                  </form>
 
-                                  {% if img_obj %}
-                                    <h3>Succesfully uploaded : {{img_obj.title}}</h3>
-                                    <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">
-                                  {% endif %}-->
-
-                                <!--<img class="specialimg" src="{% static '/images/mmg.jpg' %}" align="RIGHT" height="150px" width="450px"/>-->
-                                <!--    <figcaption>Logo de {{entity.denomination}}.</figcaption>-->
 
                                 <ul>
                                   <li><p><strong>Sector: </strong>{{ entity.sector }}</p></li>
@@ -303,79 +151,6 @@
                                 </ul>
 
 
-                                <!--<div>-->
-                                <!--  <head>
-                                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-                                    <title>Anotaciones Adicionales</title>
-                                  </head>
-                                  <body>
-
-                                &lt;!&ndash;      <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css' %}">&ndash;&gt;
-                                      <table class="specialtable" align="Right" title="Anotaciones Adicionales">
-                                          <caption><strong>Anotaciones Adicionales</strong></caption>
-                                          <thead>
-                                            <tr>
-                                              <th class="specialth">Anotaión</th>
-                                              <th class="specialth">Por:</th>
-                                              <th class="specialth">Fecha de publicación</th>
-                                              <th class="specialth">Editar/Eliminar</th>
-                                            </tr>
-                                          </thead>
-
-                                          {% for note in entity.notes.all %}
-                                              <tr>
-                                                <td class="specialtd"> {{ note.text }} </td>
-
-                                                <td class="specialtd"> {{ note.publisher_name }} </td>
-
-                                                <td class="specialtd"> {{ note.pub_date }} </td>
-
-                                                <td class="specialtd"> <h5><a href=http://127.0.0.1:8000/catalog/note/{{note.id}}/update><input type="submit" value="Editar" class="btn btn-primary"/></a></h5> <h5><a href=http://127.0.0.1:8000/catalog/note/{{note.id}}/delete><input type="submit" value="Eliminar" class="btn btn-danger"/></a></h5> </td>
-                                              </tr>
-                                          {% if not forloop.last %}
-                                          {% endif %}
-                                          {% endfor %}
-                                          <tbody id="notas">
-                                          </tbody>
-                                      </table>
-                                  </body>-->
-
-                                <!--</div>-->
-
-
-                                <!--<div>-->
-<!--                                    <head>
-                                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-                                        <title></title>
-                                        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css">
-                                    </head>
-                                    <body>
-                                <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-                                <div align="Right" id="map" class="map map-home" style="margin:12px 0 12px 0;height:400px;width:400px;"></div>
-                                <script>
-                                    var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                                        osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-                                        osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});
-                                    var map = L.map('map').setView([{{entity.latitude}},{{entity.longitud}}], 17).addLayer(osm);
-                                    L.marker([{{entity.latitude}},{{entity.longitud}}])
-                                        .addTo(map)
-                                &lt;!&ndash;		.bindPopup({{entity.denomination}})&ndash;&gt;
-                                        .openPopup();
-                                </script>-->
-<!--                                    </body>-->
-                                <!--</div>-->
-
-
-<!--                                <ul>-->
-<!--                                  <li><p><strong>Denominación Antigua: </strong> {{ entity.old_denomination }}</p></li>-->
-<!--                                  <li><p><strong>Provincia: </strong>{{ entity.province }}</p></li>-->
-<!--                                  <li><p><strong>Capital Social: </strong>{{ entity.social_capital }}</p></li>-->
-<!--                                  <li><p><strong>Teléfono: </strong>{{ entity.phone_number }}</p></li>-->
-<!--                                  <li><p><strong>Dirección Web: </strong>{% if entity.web %} <a href="{{entity.web}}"> {{entity.web}} </a>{% endif %}</p></li>-->
-<!--                                  <li><p><strong>Domicilio Social actual: </strong>{% if entity.registered_office %} <a href= "https://www.google.com/maps/place/ {{entity.registered_office}}"> </a>{% endif %}</p></li>-->
-<!--                                  <li><p><strong>Email Coorporativo: </strong>{{ entity.corporate_email }}</p></li>-->
-<!--                                </ul>-->
-
                                 <p></p>
                                 <p></p>
 
@@ -393,17 +168,32 @@
                                               <th class="th">Nombre</th>
                                               <th class="th">Cargo Actual</th>
                                               <th class="th">Desde</th>
+                                              <th class="th">Hasta</th>
+                                              <th class="th">Otras entidades</th>
                                               <th class="th">Editar/Eliminar</th>
                                             </tr>
                                           </thead>
 
                                           {% for administrator in entity.Administradores.all %}
                                               <tr>
-                                                <td class="tdname" title="{{ administrator.name }}"> <a id="ent" href="{% url 'administrator-detail' administrator.pk %}">{{ administrator.name }} </a></td>
+<!--                                                <td class="tdname" title="{{ administrator.name }}"> <a id="ent" href="{% url 'administrator-detail' administrator.pk %}">{{ administrator.name }} </a></td>-->
+
+                                                <td class="tdname" title="{{ administrator.name }}"> {{ administrator.name }} </td>
 
                                                 <td class="td"> {{ administrator.charge }} </td>
 
                                                 <td class="td"> {{ administrator.start_date }} </td>
+
+                                                <td class="td"> {{ administrator.untill }} </td>
+
+                                                <ul><td class="td"> {% for ent in administrator.other_entities.all %}
+
+                                                    <li><a href="{% url 'business-detail' ent.pk %}">{{ ent.denomination }}</a></li>
+
+                                                    {% endfor %}
+
+                                                </td></ul>
+
 
                                                 <td class="td"> <h5><a href=http://127.0.0.1:8000/catalog/administrator/{{administrator.id}}/update><input type="submit" value="Editar" class="btn btn-success"/></a></h5> <h5><a href=http://127.0.0.1:8000/catalog/administrator/{{administrator.id}}/delete><input type="submit" value="Eliminar" class="btn btn-danger"/></a></h5> </td>
                                               </tr>
@@ -495,31 +285,43 @@
                                     var edges_ = [];
                                     var nodes_ = [];
                                     var nodes__ = [];
+                                    var nodesent = [];
 
                                     nodes_[0] = entity.title;
 
                                     var b = document.querySelectorAll("td.tdname");
                                     var e = document.querySelectorAll("title.otherent");
                                     var administradores = [];
+                                    var entidades = [];
 
                                     for (index = 0; index < b.length; ++index) {
                                         administradores.push(b[index].title)
                                     }
 
                                     for (index = 0; index < e.length; ++index) {
-                                        administradores.push(e[index].id)
+                                        /* administradores.push(e[index].id) */
+                                        entidades.push(e[index].id)
                                     }
 
                                     var n = nodes_.concat(administradores);
+                                    var ne = nodesent.concat(entidades);
 
+                                    var k = ne.length + n.length;
 
-                                    for (index = 0; index < n.length; ++index){
-                                        nodes__.push({id: index, label: n[index]});
-                                    }
+                                    nodes__.push({id: 0, label: nodes_[0], color: "#FFFF00"})
 
                                     for (index = 1; index < n.length; ++index){
+                                        nodes__.push({id: index, label: n[index], color: "#C2FABC"});
+                                    }
+
+                                    for (index = n.length; index < k; ++index){
+                                        nodes__.push({id: index, label: ne[index - n.length], color: "#FB7E81"});
+                                    }
+
+                                    for (index = 1; index < nodes__.length; ++index){
                                         edges_.push({from: 0, to: index});
                                     }
+
 
                                       // create an array with nodes
                                       var nodes = new vis.DataSet(nodes__);
@@ -540,7 +342,6 @@
 
 
                                 </div>
-
 
 
 

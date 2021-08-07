@@ -26,18 +26,6 @@
 
 
 
-
-
-
-<!--<link rel="stylesheet" href="{% static 'css/newStyle.css' %}">-->
-
-<!--<header>
-&lt;!&ndash;<img class="rounded float-right" src="{% static '/images/husky.jpg' %}" align="RIGHT" height="300px" width="450px"/>&ndash;&gt;
-<h1>Individuo: {{ individual.surname1 }}, {{ individual.name }}</h1>
-</header>-->
-
-<!--<html>-->
-
 <body class="wy-body-for-nav">
 
         <nav data-toggle="wy-nav-shift" class="wy-nav-side" style="width:220px">
@@ -63,50 +51,17 @@
               </div>
         </nav>
 
-<div class="wy-nav-content">
 
 
 <div class="wy-nav-content" style="width: 50%; float:right">
   <div class="wy-nav-content" style="float:center">
   <header>
 <!--  <img class="rounded float-right" src="{% static '/images/husky.jpg' %}" align="RIGHT" height="300px" width="450px"/>-->
-  <img class="specialimg" src="{% static individual.photo.url %}" style="width:auto" align="CENTER" height="150px" width="450px"/>
+  <img class="specialimg" src="{% static individual.photo.url %}" style="width:auto" align="RIGHT" height="150px" width="450px"/>
   </header>
   </div>
 
-  <!--<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Anotaciones Adicionales</title>
-  </head>
-  <body>-->
-  <!--      <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css' %}">-->
-<!--      <table class="specialtable" align="Right" title="Anotaciones Adicionales" style="width:auto">
-          <caption class="specialcaption"><strong>Anotaciones Adicionales</strong></caption>
-          <thead>
-            <tr>
-              <th class="specialth">Anotaión</th>
-              <th class="specialth">Por:</th>
-              <th class="specialth">Fecha de publicación</th>
-              <th class="specialth">Editar/Eliminar</th>
-            </tr>
-          </thead>
 
-          {% for note in individual.notes.all %}
-              <tr>
-                <td class="specialtd"> {{ note.text }} </td>
-
-                <td class="specialtd"> {{ note.publisher_name }} </td>
-
-                <td class="specialtd"> {{ note.pub_date }} </td>
-
-                <td class="specialtd"> <h5><a href=http://127.0.0.1:8000/catalog/note/{{note.id}}/update><input type="submit" value="Editar" class="btn btn-primary"/></a></h5> <h5><a href=http://127.0.0.1:8000/catalog/note/{{note.id}}/delete><input type="submit" value="Eliminar" class="btn btn-danger"/></a></h5> </td>
-              </tr>
-          {% if not forloop.last %}
-          {% endif %}
-          {% endfor %}
-          <tbody id="notas">
-          </tbody>
-      </table>-->
       <div class="wy-nav-content" style="float:right">
       <!-- begin wwww.htmlcommentbox.com -->
        <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...</div>
@@ -124,7 +79,6 @@
 
 
 <header>
-<!--<img class="rounded float-right" src="{% static '/images/husky.jpg' %}" align="RIGHT" height="300px" width="450px"/>-->
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <h1>Individuo: {{ individual.surname1 }}, {{ individual.name }}</h1>
 </header>
@@ -138,15 +92,7 @@
   <input type="submit" value="Eliminar Entidad" class="btn btn-primary"/>
   </a>
 
-<!--  <select> name="id"-->
-<!--    <option value="id">{{individual.id}}-->
-<!--  </select>-->
-
-<!--
-  <a href="id/update">Editar</a>
--->
-
-
+  <p style="line-height: 300%"></p>
 
 
 
@@ -180,108 +126,13 @@
 
   </li>
   <li><p><strong>Otras residencias conocidas: </strong>{% for address in individual.other_addresses.all %} {{address}}{% if not forloop.last %}, {% endif %}{% endfor %}</p></li>
-
-<!--  <h5>Registar Otra residencia conocida: <a href="{% url 'address-create' %}"><input type="submit" value="Añadir" /></a> </h5>-->
-
   <li><p><strong>Cargo: </strong>{{ individual.charge }}</p></li>
   <li><p><strong>Estatus profesional: </strong>{{ individual.professional_status }}</p></li>
-<!--  <p><strong>Patrimonio: </strong>{{ individual.heritage }}</p>-->
-<!--  <p><strong>Redes Sociales: </strong>{% for media in individual.social_accounts.all %} <a href="{% url 'socialmediaaccount-detail' media.pk %}">{{ media }}{% if not forloop.last %}, {% endif %}{% endfor %}</a></p>-->
-<!--  <p><strong>Email: </strong>{{ individual.email_accounts }}</p>-->
   <li><p><strong>Email: </strong>{% for email in individual.email_accounts.all %} {{ email }}{% if not forloop.last %}, {% endif %}{% endfor %}</p></li>
-
-<!--  <h5>Registar Nueva Cuenta de Email: <a href="{% url 'email-create' %}"><input type="submit" value="Añadir" /></a> </h5>-->
-
   <li><p><strong>Teléfono: </strong> {{ individual.phone }}</p></li>
+  <li><p><strong>Fecha de Publicación: </strong>{{ individual.pub_date }}</p></li>
 </ul>
 
-
-
-
-
-<!--<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Anotaciones Adicionales</title>
-</head>
-<body>
-&lt;!&ndash;      <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.css' %}">&ndash;&gt;
-    <table class="specialtable" align="Right" title="Anotaciones Adicionales">
-        <caption><strong>Anotaciones Adicionales</strong></caption>
-        <thead>
-          <tr>
-            <th class="specialth">Anotaión</th>
-            <th class="specialth">Por:</th>
-            <th class="specialth">Fecha de publicación</th>
-            <th class="specialth">Editar/Eliminar</th>
-          </tr>
-        </thead>
-
-        {% for note in individual.notes.all %}
-            <tr>
-              <td class="specialtd"> {{ note.text }} </td>
-
-              <td class="specialtd"> {{ note.publisher_name }} </td>
-
-              <td class="specialtd"> {{ note.pub_date }} </td>
-
-              <td class="specialtd"> <h5><a href=http://127.0.0.1:8000/catalog/note/{{note.id}}/update><input type="submit" value="Editar" class="btn btn-primary"/></a></h5> <h5><a href=http://127.0.0.1:8000/catalog/note/{{note.id}}/delete><input type="submit" value="Eliminar" class="btn btn-danger"/></a></h5> </td>
-            </tr>
-        {% if not forloop.last %}
-        {% endif %}
-        {% endfor %}
-        <tbody id="notas">
-        </tbody>
-    </table>
-</body>-->
-
-
-
-<!--<div>-->
-<!--  <!DOCTYPE html>
-<html>-->
-<!--  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css">
-  </head>
-    <h1></h1>
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <div id="map" class="map map-home" style="margin:12px 0 12px 0;height:400px;width:400px;"></div>
-    <script>
-        var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});
-        var map = L.map('map').setView([{{individual.home_address_latitude}},{{individual.home_address_longitud}}], 17).addLayer(osm);
-        L.marker([{{individual.home_address_latitude}},{{individual.home_address_longitud}}])
-            .addTo(map)
-    &lt;!&ndash;		.bindPopup({{individual.surname1}})&ndash;&gt;
-            .openPopup();
-    </script>-->
-<!--</div>-->
-<!--</html>-->
-
-
-
-
-<!--<ul>
-  <li><p><strong>Otras residencias conocidas: </strong>{% for address in individual.other_addresses.all %} {{address}}{% if not forloop.last %}, {% endif %}{% endfor %}</p></li>
-
-&lt;!&ndash;  <h5>Registar Otra residencia conocida: <a href="{% url 'address-create' %}"><input type="submit" value="Añadir" /></a> </h5>&ndash;&gt;
-
-  <li><p><strong>Actividad Profesional: </strong>{{ individual.professional_activity }}</p></li>
-  <li><p><strong>Cargo: </strong>{{ individual.pcharge }}</p></li>
-  <li><p><strong>Estatus profesional: </strong>{{ individual.professional_status }}</p></li>
-&lt;!&ndash;  <p><strong>Patrimonio: </strong>{{ individual.heritage }}</p>&ndash;&gt;
-&lt;!&ndash;  <p><strong>Redes Sociales: </strong>{% for media in individual.social_accounts.all %} <a href="{% url 'socialmediaaccount-detail' media.pk %}">{{ media }}{% if not forloop.last %}, {% endif %}{% endfor %}</a></p>&ndash;&gt;
-&lt;!&ndash;  <p><strong>Email: </strong>{{ individual.email_accounts }}</p>&ndash;&gt;
-  <li><p><strong>Email: </strong>{% for email in individual.email_accounts.all %} {{ email }}{% if not forloop.last %}, {% endif %}{% endfor %}</p></li>
-
-&lt;!&ndash;  <h5>Registar Nueva Cuenta de Email: <a href="{% url 'email-create' %}"><input type="submit" value="Añadir" /></a> </h5>&ndash;&gt;
-
-  <li><p><strong>Teléfono: </strong> {{ individual.phone }}</p></li>
-&lt;!&ndash;  <p><strong>Vehículos: </strong>{% for vehicle in individual.vehicles.all %} {{ vehicle }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>&ndash;&gt;
-
-</ul>-->
 
 
 
@@ -302,9 +153,11 @@
         <th class="th">ID</th>
         <th class="th">Usuario</th>
         <th class="th" width="4" height="40">URL</th>
+        <th class="th">Email asociado</th>
         <th class="th">Seguidores</th>
         <th class="th">Usuarios a los que sigue</th>
         <th class="th">Red Social</th>
+        <th class="th">Editar/Eliminar</th>
       </tr>
     </thead>
 
@@ -312,15 +165,21 @@
     <tr>
       <td class="td" height="40"> {{media.user_id}}</td>
 
-      <td class="td" height="40"> <a href="{% url 'socialmediaaccount-detail' media.pk %}">{{ media.user_name }}</a></td>
+<!--      <td class="td" height="40"> <a href="{% url 'socialmediaaccount-detail' media.pk %}">{{ media.user_name }}</a></td>-->
+
+      <td class="td" height="40"> {{ media.user_name }}</td>
 
       <td class="td" height="40"> <a href="{{ media.url }}">{{ media.url }}</a> </td>
+
+      <td class="td" height="40"> {{ media.email }} </td>
 
       <td class="td" height="40"> {{media.followers}}</td>
 
       <td class="td" height="40"> {{media.following}}</td>
 
       <td class="td" height="40"> {{media.social_media}}</td>
+
+      <td class="td"> <h5><a href=http://127.0.0.1:8000/catalog/socialmediaaccount/{{media.id}}/update><input type="submit" value="Editar" class="btn btn-success"/></a></h5> <h5><a href=http://127.0.0.1:8000/catalog/socialmediaaccount/{{media.id}}/delete><input type="submit" value="Eliminar" class="btn btn-danger"/></a></h5> </td>
     </tr>
     {% if not forloop.last %}
     {% endif %}
@@ -358,6 +217,7 @@
         <th class="th">Modelo</th>
         <th class="th">Color</th>
         <th class="th">Primera fecha de matriculación</th>
+        <th class="th">Editar/Eliminar</th>
       </tr>
     </thead>
 
@@ -374,6 +234,8 @@
       <td class="td" height="40"> {{ vehicle.colour }}</td>
 
       <td class="td" height="40"> {{ vehicle.first_date_plate }}</td>
+
+      <td class="td"> <h5><a href=http://127.0.0.1:8000/catalog/vehicle/{{vehicle.id}}/update><input type="submit" value="Editar" class="btn btn-success"/></a></h5> <h5><a href=http://127.0.0.1:8000/catalog/vehicle/{{vehicle.id}}/delete><input type="submit" value="Eliminar" class="btn btn-danger"/></a></h5> </td>
     </tr>
     {% if not forloop.last %}
     {% endif %}
@@ -383,7 +245,6 @@
   </table>
 
 
-<!--<h5>Registar Nuevo Vehículo: <a href="{% url 'vehicle-create' %}"><input type="submit" value="Añadir" /></a> </h5>-->
 
 <p></p>
 <p></p>

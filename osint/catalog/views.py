@@ -188,7 +188,7 @@ class RegisteredEntitiesByUserListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        return Entity.objects.filter(borrower=self.request.user).filter(status__exact='a').order_by('nif')
+        return Entity.objects.filter(borrower=self.request.user).order_by('nif')
 
 
 class RegisteredIndividualsByUserListView(LoginRequiredMixin, generic.ListView):
@@ -347,32 +347,6 @@ class VehicleDelete(DeleteView):
     success_url = reverse_lazy('my-registered')
 
 
-
-# def model_form_upload(request):
-#     if request.method == 'POST':
-#         form = EntityForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('my-borrowed')
-#     else:
-#         form = EntityForm()
-#     return render(request, 'catalog/model_form_upload.html', {
-#         'form': form
-#     })
-#
-#
-# def image_upload_view(request):
-#     """Process images uploaded by users"""
-#     if request.method == 'POST':
-#         form = ImageForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             # Get the current instance object to display in the template
-#             img_obj = form.instance
-#             return render(request, 'entity_detail.html', {'form': form, 'img_obj': img_obj})
-#     else:
-#         form = ImageForm()
-#     return render(request, 'entity_detail.html', {'form': form})
 
 def model_form_upload(request):
     if request.method == 'POST':

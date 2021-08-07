@@ -60,11 +60,10 @@
     <h5>Registar Nuevo Vehículo: <a href="{% url 'vehicle-create' %}">Añadir</a> </h5>
     <h5>Registar Nueva Cuenta de Email: <a href="{% url 'email-create' %}">Añadir</a> </h5>
     <h5>Registar Otra residencia conocida: <a href="{% url 'address-create' %}">Añadir</a> </h5>
-    <h5>Añadir anotación: <a href="{% url 'note-create' %}">Añadir</a> </h5>
 
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Upload</button>
+<!--    <button type="submit" class="btn btn-primary">Upload</button>-->
 <!--    <table>
     {{ form.as_table }}
     </table>-->

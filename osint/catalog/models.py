@@ -44,29 +44,7 @@ class Administrator(models.Model):
         """
         return reverse('administrator-detail', args=[str(self.id)])
 
-# class Note(models.Model):
-#     """
-#     Accionista
-#     """
-#     publisher_name = models.CharField('Nombre', max_length=200, help_text='Introduzca su nombre', null=True, blank=True)
-#     text = models.TextField('Anotación', max_length=200, help_text='Añade una anotación adicional sobre la entidad')
-#     pub_date = models.DateTimeField('Fecha de publicación', default=timezone.now)
-#
-#
-#     def __str__(self):
-#         return self.text
-#
-#     def get_absolute_url(self):
-#         """
-#         Devuelve el URL a una instancia particular de entity
-#         """
-#         return reverse('note-detail', args=[str(self.id)])
-#
-#
-# class PublicManager(models.Manager):
-#     def get_queryset(self):
-#         return super(PublicManager, self).get_queryset()\
-#                                          .filter(pub_date__lte=timezone.now())
+
 
 
 class Entity(models.Model):
@@ -83,20 +61,20 @@ class Entity(models.Model):
     )
 
     STATUS_SORTS = (
-        ('a', 'Activa'),
-        ('i', 'Cese de Actividad (inactiva)'),
-        ('d', 'Disolución'),
-        ('l', 'Liquidación'),
-        ('e', 'Extinción'),
-        ('sp', 'Suspensión de pagos'),
-        ('b', 'Quiebra/Bancarrota')
+        ('Activa', 'Activa'),
+        ('Inactiva', 'Cese de Actividad (inactiva)'),
+        ('Disuelta', 'Disolución'),
+        ('En Liquidación', 'Liquidación'),
+        ('Extinguida', 'Extinción'),
+        ('Suspensión de pagos', 'Suspensión de pagos'),
+        ('Quiebra/Bancarrota', 'Quiebra/Bancarrota')
     )
 
     nif = models.CharField('NIF/CIF', max_length=20, help_text='NIF/CIF de la entidad')
     denomination = models.CharField('Denominación', max_length=200, help_text='Nombre de la entidad')
     old_denomination = models.CharField('Denominación Antigua', max_length=200, null=True)
     province = models.CharField('Provincia', max_length=50)
-    status = models.CharField('Status', max_length=2, choices=STATUS_SORTS, default='a',
+    status = models.CharField('Status', max_length=50, choices=STATUS_SORTS, default='a',
                               help_text='Estado de la entidad')
     age = models.CharField('Fecha de Constitución', max_length=50)
     registered_office = models.CharField('Domicilio Social Actual', max_length=200)
@@ -111,10 +89,10 @@ class Entity(models.Model):
     sector = models.CharField('Sector', max_length=50)
     corporate_email = models.CharField('Email Corporativo', max_length=50, null=True)
     pub_date = models.DateTimeField('Date published', default=timezone.now)
-    number_of_agents = models.IntegerField('Número de vocales', null=True,
-                                           help_text='Número de vocales de la entidad')
-    number_of_stockholders = models.IntegerField('Número de accionistas', null=True,
-                                                 help_text='Número de vocales de la accionistas')
+    # number_of_agents = models.IntegerField('Número de vocales', null=True,
+    #                                        help_text='Número de vocales de la entidad')
+    # number_of_stockholders = models.IntegerField('Número de accionistas', null=True,
+    #                                              help_text='Número de vocales de la accionistas')
     Administradores = models.ManyToManyField(Administrator, help_text='Administración de la entidad', max_length=50)
     logo = models.ImageField(upload_to="images/", null=True, blank=True)
     latitude = models.DecimalField(max_digits=12, decimal_places=10, null=True, blank=True)
@@ -240,6 +218,7 @@ class Individual(models.Model):
     # borrower = models.ManyToManyField(User, help_text='Analista asociado a este individuo', null=True, blank=True, max_length=50)
     photo = models.ImageField(upload_to="images/", null=True, blank=True)
     # allow_comments = models.BooleanField('allow comments', default=True)
+    pub_date = models.DateTimeField('Date published', default=timezone.now)
 
 
     def __str__(self):
