@@ -63,7 +63,7 @@ a.copybtn {
 
 /* When a list item that does NOT belong to the selected block from the toc tree is hovered. */
 .wy-menu-vertical li a:hover{
-    background-color: #d4ffa8;
+    background-color: #142404;
 }
 
 /* The text items on the toc tree */

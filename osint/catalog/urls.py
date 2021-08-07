@@ -10,13 +10,12 @@ urlpatterns = [
     url(r'^administrators/$', views.AdministratorListView.as_view(), name='administrators'),
     url(r'^administrator/(?P<pk>\d+)$', views.AdministratorDetailView.as_view(), name='administrator-detail'),
     url(r'^business/(?P<pk>\d+)$', views.BusinessDetailView.as_view(), name='business-detail'),
-    url(r'^note/(?P<pk>\d+)$', views.NoteDetailView.as_view(), name='note-detail'),
     url(r'^individuals/$', views.IndividualListView.as_view(), name='individuals'),
     url(r'^individual/(?P<pk>\d+)$', views.IndividualDetailView.as_view(), name='individual-detail'),
     # url(r'^Social Media Accounts/$', views.SocialMediaAccountListView.as_view(), name='socialmediaaccounts'),
     url(r'^Social Media Account/(?P<pk>\d+)$', views.SocialMediaAccountDetailView.as_view(), name='socialmediaaccount-detail'),
     url(r'^signup/$', views.signup, name='signup'),
-    url(r'^myentities/$', views.LoanedEntitiesByUserListView.as_view(), name='my-borrowed'),
+    url(r'^myentities/$', views.RegisteredEntitiesByUserListView.as_view(), name='my-borrowed'),
     url(r'^myindividuals/$', views.RegisteredIndividualsByUserListView.as_view(), name='my-registered'),
     url(r'^entity/create/$', views.EntityCreate.as_view(), name='entity_create'),
     url(r'^entity/(?P<pk>\d+)/update/$', views.EntityUpdate.as_view(), name='entity_update'),
@@ -42,9 +41,6 @@ urlpatterns = [
     url(r'^vehicle/create/$', views.VehicleCreate.as_view(), name='vehicle-create'),
     url(r'^vehicle/(?P<pk>\d+)/update/$', views.VehicleUpdate.as_view(), name='vehicle-update'),
     url(r'^vehicle/(?P<pk>\d+)/delete/$', views.VehicleDelete.as_view(), name='vehicle-delete'),
-    url(r'^note/create/$', views.NoteCreate.as_view(), name='note-create'),
-    url(r'^note/(?P<pk>\d+)/update/$', views.NoteUpdate.as_view(), name='note-update'),
-    url(r'^note/(?P<pk>\d+)/delete/$', views.NoteDelete.as_view(), name='note-delete'),
 
 
 # añadir form para registro

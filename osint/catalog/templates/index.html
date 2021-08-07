@@ -24,14 +24,19 @@
 
 </head>
 
+<!--  <link rel="shortcut icon" href="static/images/CyberPeek180.png" sizes="16×16" type="png"/>-->
 
-<body class="wy-body-for-nav" style="background: url({% static 'css/leaves.png' %})">
+<body class="wy-body-for-nav">
 
         <nav data-toggle="wy-nav-shift" class="wy-nav-side" style="width:220px">
 
               <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation" style="font-size:20px">
               {% block sidebar %}
               <ul class="sidebar-nav" style="width:220px">
+                <div align="CENTER">
+                <img class="specialimg" src="{% static 'images/CyberPeek180.ico' %}" align="CENTER" style="width:150px; height:150px;" />
+                </div>
+                <p style="line-height: 300%"></p>
                   <li><a class="icon icon-home" href="{% url 'index' %}">Home</a></li>
                   {% if user.is_authenticated %}
                   <li><a>User: {{ user.get_username }}</a></li>
@@ -77,7 +82,7 @@
 
    </p>
 
-    <p style="font-size: 20px;">
+    <p style="font-size: 20px;" align="justify">
 
         El objetivo de esta herramienta sería entonces facilitar el análisis de la información recogida mostrando, en todo momento, las relaciones existentes entre los elementos identificados.
 

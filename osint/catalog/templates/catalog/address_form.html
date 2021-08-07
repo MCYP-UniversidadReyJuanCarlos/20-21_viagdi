@@ -30,6 +30,10 @@
               <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation" style="font-size:20px">
               {% block sidebar %}
               <ul class="sidebar-nav" style="width:220px">
+                <div align="CENTER">
+                <img class="specialimg" src="{% static 'images/CyberPeek180.ico' %}" align="CENTER" style="width:150px; height:150px;" />
+                </div>
+                <p style="line-height: 300%"></p>
                   <li><a class="icon icon-home" href="{% url 'index' %}">Home</a></li>
                   {% if user.is_authenticated %}
                   <li><a>User: {{ user.get_username }}</a></li>
@@ -53,7 +57,8 @@
     <table>
     {{ form.as_table }}
     </table>
-    <input type="submit" value="Submit" />
+    <p style="line-height: 300%"></p>
+    <input type="submit" value="Guardar" class="btn btn-primary"/>
 
 </form>
 

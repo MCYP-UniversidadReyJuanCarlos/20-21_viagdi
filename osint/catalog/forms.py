@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from .models import *
 
 
@@ -13,17 +12,6 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
 
-
-# class EntityForm(forms.ModelForm):
-#     class Meta:
-#         model = Entity
-#         fields = '__all__'
-#
-# class ImageForm(forms.ModelForm):
-#     """Form for the image model"""
-#     class Meta:
-#         model = Entity
-#         fields = ('logo',)
 
 class EntityForm(forms.ModelForm):
     class Meta:
