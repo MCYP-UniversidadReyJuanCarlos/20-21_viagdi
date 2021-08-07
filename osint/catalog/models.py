@@ -3,8 +3,7 @@ from django.db import models
 # Create your models here.
 
 from django.utils import timezone
-from django.urls import reverse #Used to generate URLs by reversing the URL patterns
-# from django_google_maps import fields as map_fields
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 
@@ -13,7 +12,6 @@ class Business(models.Model):
     nif = models.CharField('NIF/CIF', max_length=20, help_text='NIF/CIF de la entidad del administrador')
     charge = models.CharField('Cargo', max_length=20, help_text='Cargo que desempeña en la entidad', null=True, blank=True)
     from_date = models.DateField('Desde', null=True, blank=True)
-    # propietary = models.ForeignKey('Administrator', help_text='administrador', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.denomination
@@ -24,21 +22,14 @@ class Business(models.Model):
         """
         return reverse('business-detail', args=[str(self.id)])
 
-# from django_mysql.models import ListCharField, ListTextField
 
 class Administrator(models.Model):
     name = models.CharField('Name', max_length=50, help_text='Nombre completo')
     charge = models.CharField('Charge', max_length=30, help_text='Cargo en la entidad')
     start_date = models.DateField('Desde', help_text='Fecha en la que empezó con el cargo', null=True, blank=True)
     untill = models.DateField('Hasta', help_text='Fecha de cese', null=True, blank=True)
-    # another_entities = models.ExpressionList('Entities', help_text='Lista de Otras entidades a cargo de este administrador',
-    #                                      null=True, blank=True)
-    # another_entities = ListTextField(models.CharField(Business, help_text='Lista de Otras entidades a cargo de este administrador', max_length=100, null=True),
-    #                                  size=None, null=True)
-    # another_entities = models.ManyToManyField(Business, help_text='Otra entidad del administrador', max_length=50)
     other_entities = models.ManyToManyField(Business, help_text='Otra entidad del administrador', null=True, blank=True)
-    # entities = models.ForeignKey('Business', help_text='Otra entidad del administrador', max_length=50,
-    #                              on_delete=models.SET_NULL, null=True)
+
 
     class Meta:
         ordering = ['name']
@@ -53,29 +44,29 @@ class Administrator(models.Model):
         """
         return reverse('administrator-detail', args=[str(self.id)])
 
-class Note(models.Model):
-    """
-    Accionista
-    """
-    publisher_name = models.CharField('Nombre', max_length=200, help_text='Introduzca su nombre', null=True, blank=True)
-    text = models.TextField('Anotación', max_length=200, help_text='Añade una anotación adicional sobre la entidad')
-    pub_date = models.DateTimeField('Fecha de publicación', default=timezone.now)
-
-
-    def __str__(self):
-        return self.text
-
-    def get_absolute_url(self):
-        """
-        Devuelve el URL a una instancia particular de entity
-        """
-        return reverse('note-detail', args=[str(self.id)])
-
-
-class PublicManager(models.Manager):
-    def get_queryset(self):
-        return super(PublicManager, self).get_queryset()\
-                                         .filter(pub_date__lte=timezone.now())
+# class Note(models.Model):
+#     """
+#     Accionista
+#     """
+#     publisher_name = models.CharField('Nombre', max_length=200, help_text='Introduzca su nombre', null=True, blank=True)
+#     text = models.TextField('Anotación', max_length=200, help_text='Añade una anotación adicional sobre la entidad')
+#     pub_date = models.DateTimeField('Fecha de publicación', default=timezone.now)
+#
+#
+#     def __str__(self):
+#         return self.text
+#
+#     def get_absolute_url(self):
+#         """
+#         Devuelve el URL a una instancia particular de entity
+#         """
+#         return reverse('note-detail', args=[str(self.id)])
+#
+#
+# class PublicManager(models.Manager):
+#     def get_queryset(self):
+#         return super(PublicManager, self).get_queryset()\
+#                                          .filter(pub_date__lte=timezone.now())
 
 
 class Entity(models.Model):
@@ -101,7 +92,6 @@ class Entity(models.Model):
         ('b', 'Quiebra/Bancarrota')
     )
 
-    # google = models.URLField('dir', default="https://www.google.com/maps/place/")
     nif = models.CharField('NIF/CIF', max_length=20, help_text='NIF/CIF de la entidad')
     denomination = models.CharField('Denominación', max_length=200, help_text='Nombre de la entidad')
     old_denomination = models.CharField('Denominación Antigua', max_length=200, null=True)
@@ -125,17 +115,13 @@ class Entity(models.Model):
                                            help_text='Número de vocales de la entidad')
     number_of_stockholders = models.IntegerField('Número de accionistas', null=True,
                                                  help_text='Número de vocales de la accionistas')
-    # leaderships = models.CharField(Leaderships, help_text='Administración de la entidad')
     Administradores = models.ManyToManyField(Administrator, help_text='Administración de la entidad', max_length=50)
     logo = models.ImageField(upload_to="images/", null=True, blank=True)
     latitude = models.DecimalField(max_digits=12, decimal_places=10, null=True, blank=True)
     longitud = models.DecimalField(max_digits=12, decimal_places=10, null=True, blank=True)
-    #40.4260746,-3.6960158
     borrower = models.ManyToManyField(User)
     # borrower = models.ManyToManyField(User, help_text='Analista asociado a esta entidad', null=True, blank=True, max_length=50)
-    notes = models.ManyToManyField(Note, help_text='Anotaciones adicionales', max_length=100, null=True, blank=True)
-    allow_comments = models.BooleanField('allow comments', default=True)
-    objects = PublicManager()
+    # allow_comments = models.BooleanField('allow comments', default=True)
 
 
     def __str__(self):
@@ -250,11 +236,10 @@ class Individual(models.Model):
     email_accounts = models.ManyToManyField(Email, help_text='Cuentas de email', max_length=50, blank=True)
     phone = models.PositiveBigIntegerField('Número de teléfono', null=True, blank=True)
     vehicles = models.ManyToManyField(Vehicle, help_text='Vehículos de su propiedad', max_length=50, blank=True)
-    borrower = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    borrower = models.ManyToManyField(User)
     # borrower = models.ManyToManyField(User, help_text='Analista asociado a este individuo', null=True, blank=True, max_length=50)
     photo = models.ImageField(upload_to="images/", null=True, blank=True)
-    notes = models.ManyToManyField(Note, help_text='Anotaciones adicionales', max_length=100, null=True, blank=True)
-    allow_comments = models.BooleanField('allow comments', default=True)
+    # allow_comments = models.BooleanField('allow comments', default=True)
 
 
     def __str__(self):

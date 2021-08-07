@@ -28,11 +28,15 @@
 
 <body class="wy-body-for-nav">
 
-        <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side" style="width:220px">
 
-              <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+              <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation" style="font-size:20px">
               {% block sidebar %}
-              <ul class="sidebar-nav">
+              <ul class="sidebar-nav" style="width:220px">
+                <div align="CENTER">
+                <img class="specialimg" src="{% static 'images/CyberPeek180.ico' %}" align="CENTER" style="width:150px; height:150px;" />
+                </div>
+                <p style="line-height: 300%"></p>
                   <li><a class="icon icon-home" href="{% url 'index' %}">Home</a></li>
                   {% if user.is_authenticated %}
                   <li><a>User: {{ user.get_username }}</a></li>
@@ -48,9 +52,9 @@
         </nav>
 
 
-<p>Logged out!</p>
+<p>Sesión cerrada!</p>
 
-<a href="{% url 'login'%}">Click here to login again.</a>
+<a href="{% url 'login'%}">Click aquí para entrar de nuevo.</a>
 {% endblock %}
 
 </body>

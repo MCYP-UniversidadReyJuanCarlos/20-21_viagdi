@@ -77,11 +77,4 @@ class AddressAdmin(admin.ModelAdmin):
 
     pass
 
-@admin.register(Note)
-class NoteAdmin(admin.ModelAdmin):
-    # list_display = ('publisher_name', 'pub_date')
-    # list_filter = ('publisher_name', 'pub_date')
-    # fields = [('publisher_name', 'pub_date')]
-    # BusinessClassInline.extra = 0
-    # inlines = [BusinessClassInline]
-    pass
+

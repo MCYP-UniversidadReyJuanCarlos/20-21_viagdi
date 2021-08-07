@@ -1,22 +1,8 @@
-from django.core.files.storage import FileSystemStorage
 from django.http import Http404, HttpResponse
-from django.shortcuts import render
-
-# Create your views here.
-from django.template import RequestContext
 from django.views import generic
-
-from .models import *
-
 from .forms import *
-
-from django.contrib.auth.decorators import permission_required
-
-from django.contrib.auth.mixins import PermissionRequiredMixin
-
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
-
 from .forms import SignUpForm
 
 
@@ -58,7 +44,7 @@ class EntityDetailView(generic.DetailView):
         try:
             entity_id = Entity.objects.get(pk=pk)
         except Entity.DoesNotExist:
-            raise Http404("Book does not exist")
+            raise Http404("Entity does not exist")
 
         # book_id=get_object_or_404(Book, pk=pk)
 
@@ -173,22 +159,6 @@ class SocialMediaAccountDetailView(generic.DetailView):
         )
 
 
-class NoteDetailView(generic.DetailView):
-    model = Note
-
-    def Note_detail_view(request, pk):
-        try:
-            note_id = Note.objects.get(pk=pk)
-        except Note.DoesNotExist:
-            raise Http404("That note does not exist")
-
-        # book_id=get_object_or_404(Book, pk=pk)
-
-        return render(
-            request,
-            'catalog/note_detail.html',
-            context={'note': note_id, }
-        )
 
 
 def signup(request):
@@ -209,7 +179,7 @@ def signup(request):
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class LoanedEntitiesByUserListView(LoginRequiredMixin, generic.ListView):
+class RegisteredEntitiesByUserListView(LoginRequiredMixin, generic.ListView):
     """
     Generic class-based view listing books on loan to current user.
     """
@@ -377,23 +347,6 @@ class VehicleDelete(DeleteView):
     success_url = reverse_lazy('my-registered')
 
 
-class NoteCreate(CreateView):
-    model = Note
-    fields = '__all__'
-    # exclude = ['borrower']
-    success_url = reverse_lazy('my-registered')
-
-
-class NoteUpdate(UpdateView):
-    model = Note
-    fields = '__all__'
-    # exclude = ['borrower']
-
-
-class NoteDelete(DeleteView):
-    model = Note
-    success_url = reverse_lazy('my-registered')
-
 
 # def model_form_upload(request):
 #     if request.method == 'POST':
@@ -446,14 +399,4 @@ def model_form_upload_individual(request):
     })
 
 
-# def entity_form(request):
-#     if request.method == 'POST' and request.FILES['myfile']:
-#         myfile = request.FILES['myfile']
-#         fs = FileSystemStorage()
-#         filename = fs.save(myfile.name, myfile)
-#         uploaded_file_url = fs.url(filename)
-#         return render(request, 'templates/catalog/entity_form.html', {
-#             'uploaded_file_url': uploaded_file_url
-#         })
-#     return render(request, 'templates/catalog/entity_form.html')
 
