@@ -27,7 +27,7 @@ class Administrator(models.Model):
     name = models.CharField('Name', max_length=50, help_text='Nombre completo')
     charge = models.CharField('Charge', max_length=30, help_text='Cargo en la entidad')
     start_date = models.DateField('Desde', help_text='Fecha en la que empezó con el cargo', null=True, blank=True)
-    untill = models.DateField('Hasta', help_text='Fecha de cese', null=True, blank=True)
+    untill = models.DateField('Hasta', help_text='Fecha de cese', null=True, blank=True, default=timezone.datetime)
     other_entities = models.ManyToManyField(Business, help_text='Otra entidad del administrador', null=True, blank=True)
 
 
