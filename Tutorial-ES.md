@@ -187,7 +187,7 @@ Rellenamos el resto del formulario y el resultado, como ejemplo, es la página d
 </p>
 
 <p align="center">
-  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/entityDetail3.JPG" />
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/entityDetail3.jpg" />
 </p>
 
 Como se puede ver, desde esta página de detalle podemos eliminar esta entidad o editarla pinchando en los botones
