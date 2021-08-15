@@ -73,7 +73,5 @@ password: user1234
 
 # Architecture
 
-This project has two python packages, osint and catalog. osint package is created by default by Django and contain the main python fields to develop a django project. catalog package all field related to the models of the project,
-that are the information fields an analyst can fill, and all the fields related to the interface's design.
+This project has two python packages, osint and catalog. osint package is created by default by Django and contain the main python files to develop a django project. catalog package all files related to the models of the project, and all the files related to the interface's design.
 
-# Prepare development/execution environment
