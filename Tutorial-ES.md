@@ -91,7 +91,7 @@ y las páginas que muestran dichas listas se muestran en las siguientes imágene
 </p>
 
 <p align="center">
-  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/IndividuosLista.JPG" />
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/IndividuosLista.jpg" />
 </p>
 
 ## Registro de una Entidad en la herramienta
@@ -106,7 +106,7 @@ el botón "Registrar" que se muestra en la siguiente imagen
 y después se nos redirige a un formulario de registro con los campos que se muestran a continuación
 
 <p align="center">
-  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/registroEnt1.JPG" />
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/registroEnt1.jpg" />
 </p>
 
 <p align="center">
@@ -215,3 +215,107 @@ relacionadas, o todas a la vez como en la imagen anterior
 <p align="center">
   <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/grafoEntRel.jpg" />
 </p>
+
+## Registro de un individuo en la herramienta
+
+Para registrar un nuevo individuo, se accede a "Mis Individuos" mediante la pestaña dedicada en el panel lateral, y pichamos 
+el botón "Registrar" que se muestra en la siguiente imagen
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/IndividuosLista.jpg" />
+</p>
+
+y después se nos redirige a un formulario de registro con los campos que se muestran a continuación
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/registroInd1.JPG" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/registroInd2.JPG" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/registroInd3.JPG" />
+
+####(En esta imagen se puede ver el campo "borrower". Este campo me permite seleccionar de entre los usuarios de la herramienta aquellos con quienes quiero compartir este individuo que vamos a registrar. Para seleccionar varios usuarios a la vez, pinchar todos los usuarios pulsando a la vez la tecla Control)
+</p>
+
+Antes de rellenar todo el formulario, hay que añadir, si es necesario, las redes sociales, los vehículos, las cuentas de email 
+y las segundas residencias del individuo que se registra, Evidentemente  esto es opcional, pero más completa será la información
+sobre el individuo. Pinchando en "Añadir" del campo correspondiente nos redirigirá al formulario correspondiente para registrar
+los objetos que se acaban de mencionar. Estos formularios tienen la siguiente forma
+
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/FormularioRedSocial.JPG" />
+
+#### (Formulario de registro de una red social de un individuo)
+
+</p>
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/redSocial.jpg" />
+
+#### (Vista de una cuenta de red social registrada. Para volver al formulario de registro del individuo, ir "atrás" con el navegador hasta llegar al midmo y actualizar la página)
+</p>
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/FormularioVehiculo.jpg" />
+
+#### (Formulario de registro de un vehículo de un individuo)
+</p>
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/vehiculo.JPG" />
+
+#### (Vista de un vehículo registrado. Para volver al formulario de registro del individuo, ir "atrás" con el navegador hasta llegar al midmo y actualizar la página)
+</p>
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/FormularioEmail.JPG" />
+
+#### (Formulario de registro de un email de un individuo)
+</p>
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/EjemploEmail.jpg" />
+
+#### (Vista de un email registrado. Para volver al formulario de registro del individuo, ir "atrás" con el navegador hasta llegar al midmo y actualizar la página)
+</p>
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/FormularioDirección.jpg" />
+
+#### (Formulario de registro de una dirección de un individuo)
+</p>
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/EjemploDirección.JPG" />
+
+#### (Vista de una dirección registrada. Para volver al formulario de registro del individuo, ir "atrás" con el navegador hasta llegar al midmo y actualizar la página)
+</p>
+
+Ahora, para volver al formulario de registro de un individuo con el que empezamos esta sección, de la misma forma que antes, vamos
+"atrás" con el anvegador hasta llegar al formulario de registro de un individuo y actualizamos la página para actualizar 
+con ella Todos los campos referentes a los registros de los objetos que acabamos de comentar, y veremos como en los campos 
+correspondientes aparecen los objetos arriba registrados, como por ejemplo:
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/other_address.jpg" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/social_accounts.jpg" />
+</p>
+
+Rellenamos el resto del formulario y el resultado, como ejemplo, es la página de detalle del individuo registrado
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/indivDetail1.JPG" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/indivDetail2.jpg" />
+</p>
+

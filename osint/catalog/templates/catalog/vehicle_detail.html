@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="no-js lt-ie9" lang="es" >
+<html class="no-js" lang="es" >
+
+<!--{% extends "base_generic.html" %}-->
+
+{% load static %}
+{% block content %}
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script type="text/javascript" src="{% static 'css/_static/js/modernizr.min.js' %}"></script>
+  <script src="{% static 'css/_static/jquery.js' %}"></script>
+  <script src="{% static 'css/_static/underscore.js' %}"></script>
+  <script type="text/javascript" src="{% static 'css/_static/js/theme.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/newStyle.css' %}">
+  <link rel="stylesheet" href="{% static 'css/_static/css/theme.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'css/_static/css/style.css' %}" type="text/css" />
+
+</head>
+
+
+<body class="wy-body-for-nav">
+
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side" style="width:220px">
+
+              <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation" style="font-size:20px">
+              {% block sidebar %}
+              <ul class="sidebar-nav" style="width:220px">
+                <div align="CENTER">
+                <img class="specialimg" src="{% static 'images/CyberPeek180.ico' %}" align="CENTER" style="width:150px; height:150px;" />
+                </div>
+                <p style="line-height: 300%"></p>
+                  <li><a class="icon icon-home" href="{% url 'index' %}">Home</a></li>
+                  {% if user.is_authenticated %}
+                  <li><a>User: {{ user.get_username }}</a></li>
+                    <li><a href="{% url 'my-borrowed' %}">Mis Entidades</a></li>
+                    <li><a href="{% url 'my-registered' %}">Mis Individuos</a></li>
+                    <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+                  {% else %}
+                    <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                  {% endif %}
+              </ul>
+             {% endblock %}
+              </div>
+        </nav>
+
+        <div class="wy-nav-content">
+
+
+  <h1>Vehículo: {{ vehicle.type }}, {{ vehicle.number_plate }}</h1>
+
+  <a href={{vehicle.id}}/update>
+    <input type="submit" value="Editar" class="btn btn-primary"/>
+  </a>
+
+  <a href={{vehicle.id}}/delete>
+    <input type="submit" value="Eliminar Entidad" class="btn btn-primary"/>
+  </a>
+
+  <p style="line-height: 300%"></p>
+
+  <p><strong>Tipo: </strong>{{ vehicle.type }}</p>
+  <p><strong>Matrícula: </strong>{{ vehicle.number_plate }}</p>
+  <p><strong>Marca: </strong> {{ vehicle.brand }}</p>
+  <p><strong>Modelo: </strong>{{ vehicle.model }}</p>
+  <p><strong>Color: </strong>{{ vehicle.colour  }}</p>
+  <p><strong>Fecha de la primera matriculación: </strong>{{ vehicle.first_date_plate }}</p>
+
+
+{% endblock %}
+
+        </div>
+</body>
+</html>

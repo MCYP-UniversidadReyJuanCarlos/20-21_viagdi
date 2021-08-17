@@ -32,15 +32,18 @@ urlpatterns = [
     url(r'^socialmediaaccount/create/$', views.SocialMediaAccountCreate.as_view(), name='socialmediaaccount-create'),
     url(r'^socialmediaaccount/(?P<pk>\d+)/update/$', views.SocialMediaAccountUpdate.as_view(), name='socialmediaaccount-update'),
     url(r'^socialmediaaccount/(?P<pk>\d+)/delete/$', views.SocialMediaAccountDelete.as_view(), name='socialmediaaccount-delete'),
+    url(r'^email/(?P<pk>\d+)$', views.EmailDetailView.as_view(), name='email-detail'),
     url(r'^email/create/$', views.EmailCreate.as_view(), name='email-create'),
     url(r'^email/(?P<pk>\d+)/update/$', views.EmailUpdate.as_view(), name='email-update'),
     url(r'^email/(?P<pk>\d+)/delete/$', views.EmailDelete.as_view(), name='email-delete'),
+    url(r'^address/(?P<pk>\d+)$', views.AddressDetailView.as_view(), name='address-detail'),
     url(r'^address/create/$', views.AddressCreate.as_view(), name='address-create'),
     url(r'^address/(?P<pk>\d+)/update/$', views.AddressUpdate.as_view(), name='address-update'),
     url(r'^address/(?P<pk>\d+)/delete/$', views.AddressDelete.as_view(), name='address-delete'),
     url(r'^vehicle/create/$', views.VehicleCreate.as_view(), name='vehicle-create'),
     url(r'^vehicle/(?P<pk>\d+)/update/$', views.VehicleUpdate.as_view(), name='vehicle-update'),
     url(r'^vehicle/(?P<pk>\d+)/delete/$', views.VehicleDelete.as_view(), name='vehicle-delete'),
+    url(r'^vehicle/(?P<pk>\d+)$', views.VehicleDetailView.as_view(), name='vehicle-detail'),
 
 
 # añadir form para registro
