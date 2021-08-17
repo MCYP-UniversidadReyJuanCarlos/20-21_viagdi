@@ -158,7 +158,56 @@ class SocialMediaAccountDetailView(generic.DetailView):
             context={'socialmediaaccount': socialmediaaccount_id, }
         )
 
+class VehicleDetailView(generic.DetailView):
+    model = Vehicle
 
+    def Vehicle_detail_view(request, pk):
+        try:
+            vehicle_id = Vehicle.objects.get(pk=pk)
+        except Vehicle.DoesNotExist:
+            raise Http404("That account does not exist")
+
+        # book_id=get_object_or_404(Book, pk=pk)
+
+        return render(
+            request,
+            'catalog/vehicle_detail.html',
+            context={'vehicle': vehicle_id, }
+        )
+
+class EmailDetailView(generic.DetailView):
+    model = Email
+
+    def Email_detail_view(request, pk):
+        try:
+            email_id = Email.objects.get(pk=pk)
+        except Email.DoesNotExist:
+            raise Http404("That account does not exist")
+
+        # book_id=get_object_or_404(Book, pk=pk)
+
+        return render(
+            request,
+            'catalog/email_detail.html',
+            context={'email': email_id, }
+        )
+
+class AddressDetailView(generic.DetailView):
+    model = Address
+
+    def Address_detail_view(request, pk):
+        try:
+            address_id = Address.objects.get(pk=pk)
+        except Address.DoesNotExist:
+            raise Http404("That account does not exist")
+
+        # book_id=get_object_or_404(Book, pk=pk)
+
+        return render(
+            request,
+            'catalog/address_detail.html',
+            context={'address': address_id, }
+        )
 
 
 def signup(request):
@@ -295,7 +344,7 @@ class SocialMediaAccountDelete(DeleteView):
 class EmailCreate(CreateView):
     model = Email
     fields = '__all__'
-    success_url = reverse_lazy('my-registered')
+    # success_url = reverse_lazy('my-registered')
     # exclude = ['borrower']
     # success_url deberia ser a la pagina anterior -> investigar
 
@@ -308,14 +357,14 @@ class EmailUpdate(UpdateView):
 
 class EmailDelete(DeleteView):
     model = Email
-    success_url = reverse_lazy('my-registered')
+    # success_url = reverse_lazy('my-registered')
 
 
 class AddressCreate(CreateView):
     model = Address
     fields = '__all__'
     # exclude = ['borrower']
-    success_url = reverse_lazy('my-registered')
+    # success_url = reverse_lazy('my-registered')
 
 
 class AddressUpdate(UpdateView):
@@ -326,25 +375,26 @@ class AddressUpdate(UpdateView):
 
 class AddressDelete(DeleteView):
     model = Address
-    success_url = reverse_lazy('my-registered')
+    #success_url = reverse_lazy('my-registered')
 
 
 class VehicleCreate(CreateView):
     model = Vehicle
     fields = '__all__'
     # exclude = ['borrower']
-    success_url = reverse_lazy('my-registered')
+    #success_url = reverse_lazy('vehicle-detail')
 
 
 class VehicleUpdate(UpdateView):
     model = Vehicle
     fields = '__all__'
     # exclude = ['borrower']
+    #success_url = reverse_lazy('vehicle-detail')
 
 
 class VehicleDelete(DeleteView):
     model = Vehicle
-    success_url = reverse_lazy('my-registered')
+    success_url = reverse_lazy('vehicle-detail')
 
 
 
