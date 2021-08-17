@@ -114,7 +114,7 @@ y después se nos redirige a un formulario de registro con los campos que se mue
 </p>
 
 <p align="center">
-  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/registroEnt3.JPG" />
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/registroEnt3_.JPG" />
 
 ####(En esta imagen se puede ver el campo "borrower". Este campo me permite seleccionar de entre los usuarios de la herramienta aquellos con quienes quiero compartir esta entidad que voy a registrar. Para seleccionar varios usuarios a la vez, pinchar todos los usuarios pulsando a la vez la tecla Control)
 </p>
