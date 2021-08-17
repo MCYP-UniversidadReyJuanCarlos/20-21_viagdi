@@ -141,7 +141,7 @@ pinchamos en "Añadir" como en la imagen, y seremos redirigidos al formulario co
 </p>
 
 <p align="center">
-  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/FormularioEntVinc.jpg" />
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/FormularioEntVinc.JPG" />
 </p>
 
 Una vez rellenado este último formulario, guardamos, y el resultado es, por ejemplo
@@ -155,7 +155,7 @@ vamos "atrás" con el navegador hasta llegar y actualizamos la página para que 
 en el campo de "other entities" la entidad que acabamos de guardar
 
 <p align="center">
-  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/other_entities.JPG" />
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/other_entities.jpg" />
 </p>
 
 <p align="center">
@@ -307,6 +307,10 @@ correspondientes aparecen los objetos arriba registrados, como por ejemplo:
 
 <p align="center">
   <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/social_accounts.jpg" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/email_accounts.jpg" />
 </p>
 
 Rellenamos el resto del formulario y el resultado, como ejemplo, es la página de detalle del individuo registrado
