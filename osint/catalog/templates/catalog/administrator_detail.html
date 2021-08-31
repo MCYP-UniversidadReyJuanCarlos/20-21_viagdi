@@ -42,7 +42,7 @@
                   <li><a>User: {{ user.get_username }}</a></li>
                     <li><a href="{% url 'my-borrowed' %}">Mis Entidades</a></li>
                     <li><a href="{% url 'my-registered' %}">Mis Individuos</a></li>
-                    <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+                    <li><a href="{% url 'logout'%}">Logout</a></li>
                   {% else %}
                     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
                   {% endif %}

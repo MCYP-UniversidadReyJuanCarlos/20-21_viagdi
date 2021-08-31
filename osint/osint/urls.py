@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/', include('catalog.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path(r'comments/', include('django_comments_xtd.urls')),
+    # path(r'comments/', include('django_comments_xtd.urls')),
     path(r'jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     path('', RedirectView.as_view(url='/catalog/', permanent=True)),
 ]

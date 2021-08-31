@@ -1,4 +1,4 @@
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse, HttpRequest, HttpResponseRedirect
 from django.views import generic
 from .forms import *
 from django.contrib.auth import login, authenticate
@@ -74,7 +74,7 @@ class AdministratorDetailView(generic.DetailView):
         try:
             administrator_id = Administrator.objects.get(pk=pk)
         except Administrator.DoesNotExist:
-            raise Http404("Book does not exist")
+            raise Http404("Esta persona vinculada no existe")
 
         return render(
             request,
@@ -90,7 +90,7 @@ class BusinessDetailView(generic.DetailView):
         try:
             business_id = Business.objects.get(pk=pk)
         except Business.DoesNotExist:
-            raise Http404("Book does not exist")
+            raise Http404("Esta entidad relacionada no existe")
 
         return render(
             request,
@@ -118,7 +118,7 @@ class IndividualDetailView(generic.DetailView):
         try:
             individual_id = Individual.objects.get(pk=pk)
         except Individual.DoesNotExist:
-            raise Http404("Individual does not exist")
+            raise Http404("Este individuo no existe")
 
         # book_id=get_object_or_404(Book, pk=pk)
 
@@ -148,7 +148,7 @@ class SocialMediaAccountDetailView(generic.DetailView):
         try:
             socialmediaaccount_id = SocialMediaAccount.objects.get(pk=pk)
         except SocialMediaAccount.DoesNotExist:
-            raise Http404("That account does not exist")
+            raise Http404("La cuenta no existe")
 
         # book_id=get_object_or_404(Book, pk=pk)
 
@@ -165,7 +165,7 @@ class VehicleDetailView(generic.DetailView):
         try:
             vehicle_id = Vehicle.objects.get(pk=pk)
         except Vehicle.DoesNotExist:
-            raise Http404("That account does not exist")
+            raise Http404("El vehíulo no existe")
 
         # book_id=get_object_or_404(Book, pk=pk)
 
@@ -182,7 +182,7 @@ class EmailDetailView(generic.DetailView):
         try:
             email_id = Email.objects.get(pk=pk)
         except Email.DoesNotExist:
-            raise Http404("That account does not exist")
+            raise Http404("El email no existe")
 
         # book_id=get_object_or_404(Book, pk=pk)
 
@@ -199,7 +199,7 @@ class AddressDetailView(generic.DetailView):
         try:
             address_id = Address.objects.get(pk=pk)
         except Address.DoesNotExist:
-            raise Http404("That account does not exist")
+            raise Http404("La dirección no existe")
 
         # book_id=get_object_or_404(Book, pk=pk)
 
@@ -267,7 +267,6 @@ class EntityUpdate(UpdateView):
     fields = '__all__'
     # exclude = ['borrower']
 
-
 class EntityDelete(DeleteView):
     model = Entity
     success_url = reverse_lazy('my-borrowed')
@@ -278,16 +277,16 @@ class AdministratorCreate(CreateView):
     fields = '__all__'
     # exclude = ['borrower']
 
-
 class AdministratorUpdate(UpdateView):
     model = Administrator
     fields = '__all__'
     # exclude = ['borrower']
-
+    # def get_success_url(self):
+    #     return self.request.path
 
 class AdministratorDelete(DeleteView):
     model = Administrator
-    success_url = reverse_lazy('administrators')
+    success_url = reverse_lazy('my-borrowed')
 
 
 class BusinessCreate(CreateView):
