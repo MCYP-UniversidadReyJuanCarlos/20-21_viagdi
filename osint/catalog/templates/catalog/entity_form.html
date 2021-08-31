@@ -71,7 +71,7 @@
 
  <form method="post" enctype="multipart/form-data">
 
-    <h5>Registar Nueva Persona Vinculada: <a href="{% url 'administrator-create' %}?next={{ request.path }}">Añadir </a> </h5>
+    <h5>Registar Nueva Persona Vinculada: <a href="{% url 'administrator-create' %}">Añadir </a> </h5>
 
     {% csrf_token %}
     {{ form.as_p }}
