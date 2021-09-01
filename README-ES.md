@@ -71,10 +71,7 @@ username: user
 password: user1234
 ```
 
-# Documentación de desarrollo
+# Arquitectura
 
-# Architecture
+Este proyecto tiene dos paquetes python, osint y catalog. El paquete osint es creado por defecto por Django y contiene los principales archivos python para desarrollar y levantar un proyecto django. El paquete catalog contiene todos los archivos relacionados con los modelos del proyecto, y todos los archivos relacionados con el diseño de la interfaz.
 
-Este proyecto tiene dos paquetes python, osint y catalog. el paquete osint es creado por defecto por Django y contiene los principales archivos python para desarrollar un proyecto django. el paquete catalog contiene todos los archivos relacionados con los modelos del proyecto, y todos los archivos relacionados con el diseño de la interfaz.
-
-# Prepare development/execution environment
