@@ -70,6 +70,10 @@ Para cerrar sesión en la herramienta, accedemos a la pestaña del panel lateral
   <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/logout.JPG" />
 </p>
 
+<p align="center">
+  <img src="https://github.com/MCYP-UniversidadReyJuanCarlos/20-21_viagdi/blob/main/ImagesTutorial/logout2.JPG" />
+</p>
+
 ## Listas de Entidades e Individuos Registrados de un usuario
 
 Una vez loggeado en la herramienta, un usuario puede acceder a la lista de entidades de las cuales tiene permiso para acceder y con ello a editar y trabajar sobre ella
